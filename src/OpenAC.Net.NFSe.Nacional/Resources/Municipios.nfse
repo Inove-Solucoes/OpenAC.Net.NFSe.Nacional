@@ -88,5 +88,34 @@
 				</Ambiente>
 			</Ambientes>
 		</serviceInfo>
+		<serviceInfo Id="3205200">
+			<Tipo>VilaVelhaSoap</Tipo>
+			<Nome>Vila Velha</Nome>
+			<UF>ES</UF>
+			<Ambientes>
+				<Ambiente Tipo="2">
+					<Enderecos>
+						<Endereco Tipo="Enviar">http://tributacao.vilavelha.es.gov.br:8080/tbwhomologacao/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="EnviarEvento">http://tributacao.vilavelha.es.gov.br:8080/tbwhomologacao/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="ConsultarNsu">http://tributacao.vilavelha.es.gov.br:8080/tbwhomologacao/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="ConsultarChave">http://tributacao.vilavelha.es.gov.br:8080/tbwhomologacao/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="DownloadDanfse">http://tributacao.vilavelha.es.gov.br:8080/tbwhomologacao/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">http://tributacao.vilavelha.es.gov.br:8080/tbwhomologacao/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">http://tributacao.vilavelha.es.gov.br:8080/tbwhomologacao/services/NotaFiscalNacional</Endereco>
+					</Enderecos>
+				</Ambiente>
+				<Ambiente Tipo="1">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://tributacao.vilavelha.es.gov.br:443/tbw/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="EnviarEvento">https://tributacao.vilavelha.es.gov.br:443/tbw/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://tributacao.vilavelha.es.gov.br:443/tbw/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="ConsultarChave">https://tributacao.vilavelha.es.gov.br:443/tbw/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://tributacao.vilavelha.es.gov.br:443/tbw/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://tributacao.vilavelha.es.gov.br:443/tbw/services/NotaFiscalNacional</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://tributacao.vilavelha.es.gov.br:443/tbw/services/NotaFiscalNacional</Endereco>
+					</Enderecos>
+				</Ambiente>
+			</Ambientes>
+		</serviceInfo>
 	</Services>
 </NFSeServices>

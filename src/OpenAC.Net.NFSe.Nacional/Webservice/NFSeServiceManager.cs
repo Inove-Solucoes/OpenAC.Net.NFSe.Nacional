@@ -9,6 +9,7 @@ using OpenAC.Net.DFe.Core.Common;
 using OpenAC.Net.NFSe.Nacional.Common;
 using OpenAC.Net.NFSe.Nacional.Common.Types;
 using OpenAC.Net.NFSe.Nacional.Webservice.Nacional;
+using OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap;
 
 namespace OpenAC.Net.NFSe.Nacional.Webservice;
 
@@ -55,6 +56,13 @@ public sealed class NFSeServiceManager
                 {
                     { VersaoNFSe.Ve100, typeof(Tiplan.TiplanWebService) },
                     { VersaoNFSe.Ve101, typeof(Tiplan.TiplanWebService) }
+                }
+            },
+            { // Lucas Ticket: #16665 13/03/2026
+                NFSeProvider.VilaVelhaSoap, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(VilaVelhaSoapWebservice) },
+                    { VersaoNFSe.Ve101, typeof(VilaVelhaSoapWebservice) }
                 }
             }
         };

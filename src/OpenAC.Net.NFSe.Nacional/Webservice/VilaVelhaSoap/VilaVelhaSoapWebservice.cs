@@ -30,7 +30,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
 
         public VilaVelhaSoapWebservice(ConfiguracaoNFSe configuracaoNFSe, NFSeServiceInfo serviceInfo)
             : base(configuracaoNFSe, serviceInfo)
-        { Console.WriteLine("Provider VilaVelha carregado."); }
+        { Console.WriteLine("Provider Vila Velha Carregado."); }
 
         #endregion
 
@@ -84,18 +84,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
 
         public override async Task<NFSeResponse<RespostaConsultaChaveDps>> ConsultaChaveDpsAsync(string id)
         {
-            this.Log().Debug($"Webservice Municipal: [ConsultaChaveDps][Envio] - {id}");
-
-            var url = ServiceInfo[Configuracao.WebServices.Ambiente][Common.Types.TipoUrl.ConsultarChaveDps];
-            var httpResponse = await SendAsync(null, HttpMethod.Get, $"{url}/dps/{id}");
-
-            var strResponse = await httpResponse.Content.ReadAsStringAsync();
-
-            this.Log().Debug($"Webservice: [ConsultaChaveDps][Resposta] - {strResponse}");
-
-            GravarArquivoEmDisco(strResponse, $"ConsultaChaveDps-{id}-resp.json", "");
-
-            return NFSeResponse<RespostaConsultaChaveDps>.Create("", "", strResponse, httpResponse.IsSuccessStatusCode);
+            throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -105,21 +94,10 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// <returns>True se existir, caso contrário false.</returns>
         public override async Task<bool> ConsultaExisteDpsAsync(string id)
         {
-            this.Log().Debug($"Webservice Municipal: [ConsultaExisteDps][Envio] - {id}");
-
-            var url = ServiceInfo[Configuracao.WebServices.Ambiente][TipoUrl.ConsultaExisteDps];
-            var httpResponse = await SendAsync(null, HttpMethod.Head, $"{url}/dps/{id}");
-
-            var strResponse = await httpResponse.Content.ReadAsStringAsync();
-
-            this.Log().Debug($"Webservice Municipal: [ConsultaExisteDps][Resposta] - {strResponse}");
-
-            GravarArquivoEmDisco(strResponse, $"ConsultaChaveDps-{id}-resp.json", "");
-
-            return httpResponse.StatusCode == HttpStatusCode.OK;
+            throw new System.NotImplementedException();
         }
 
-        #endregion
+        #endregion DPS
 
         #region Eventos
 
@@ -168,6 +146,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
 
             var url = ServiceInfo[Configuracao.WebServices.Ambiente][Common.Types.TipoUrl.Enviar];
 
+            this.Log().Debug($"Webservice Vila Velha: [Enviar][Envio] - {soapXml}");
+
             // salva envio SOAP
             GravarArquivoEmDisco(
                 soapXml,
@@ -183,7 +163,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
 
             var respostaXml = await httpResponse.Content.ReadAsStringAsync();
 
-            this.Log().Debug($"Webservice Municipal: [Enviar][Resposta] - {respostaXml}");
+            this.Log().Debug($"Webservice Vila Velha: [Enviar][Resposta] - {respostaXml}");
 
             // salva resposta SOAP
             GravarArquivoEmDisco(

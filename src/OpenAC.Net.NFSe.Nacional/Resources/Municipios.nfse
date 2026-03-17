@@ -117,5 +117,58 @@
 				</Ambiente>
 			</Ambientes>
 		</serviceInfo>
+		<serviceInfo Id="3201902">
+			<Tipo>DomingosMartins</Tipo>
+			<Nome>Domingos Martins</Nome>
+			<UF>ES</UF>
+			<Ambientes>
+				<Ambiente Tipo="2">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse/{chaveAcesso}/eventos</Endereco>
+					</Enderecos>
+				</Ambiente>
+				<Ambiente Tipo="1">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse/{chaveAcesso}/eventos</Endereco>
+					</Enderecos>
+				</Ambiente>
+			</Ambientes>
+		</serviceInfo>
+		<serviceInfo Id="3203353">
+			<Tipo>Marilandia</Tipo>
+			<Nome>Marilândia</Nome>
+			<UF>ES</UF>
+			<Ambientes>
+				<Ambiente Tipo="2">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+				<Ambiente Tipo="1">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+			</Ambientes>
+		</serviceInfo>
+		<serviceInfo Id="3203304">
+			<Tipo>Mantenopolis</Tipo>
+			<Nome>Mantenópolis</Nome>
+			<UF>ES</UF>
+			<Ambientes>
+				<Ambiente Tipo="2">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+				<Ambiente Tipo="1">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+			</Ambientes>
+		</serviceInfo>
 	</Services>
 </NFSeServices>

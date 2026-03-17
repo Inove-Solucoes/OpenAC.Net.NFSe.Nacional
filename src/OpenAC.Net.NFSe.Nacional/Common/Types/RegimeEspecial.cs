@@ -30,6 +30,7 @@
 // ***********************************************************************
 
 using OpenAC.Net.DFe.Core.Attributes;
+using System.ComponentModel;
 
 namespace OpenAC.Net.NFSe.Nacional.Common.Types;
 
@@ -41,42 +42,42 @@ public enum RegimeEspecial
     /// <summary>
     /// 0 - Nenhum
     /// </summary>
-    [DFeEnum("0")]
-    Nenhum,
+    [DFeEnum("0"), Description("Nenhum")]
+    Nenhum = 0,
 
     /// <summary>
     /// 1 - Ato Cooperado (Cooperativa)
     /// </summary>
-    [DFeEnum("1")]
-    Cooperativa,
+    [DFeEnum("1"), Description("Cooperativa")]
+    Cooperativa = 1,
 
     /// <summary>
     /// 2 - Estimativa
     /// </summary>
-    [DFeEnum("2")]
-    Estimativa,
+    [DFeEnum("2"), Description("Estimativa")]
+    Estimativa = 2,
 
     /// <summary>
     /// 3 - Microempresa Municipal
     /// </summary>
-    [DFeEnum("3")]
-    MicroempresaMunicipal,
+    [DFeEnum("3"), Description("Microempresa Municipal")]
+    MicroempresaMunicipal = 3,
 
     /// <summary>
     /// 4 - Notário ou Registrador
     /// </summary>
-    [DFeEnum("4")]
-    NotarioRegistrador,
+    [DFeEnum("4"), Description("Notário ou Registrador")]
+    NotarioRegistrador = 4,
 
     /// <summary>
     /// 5 - Profissional Autônomo
     /// </summary>
-    [DFeEnum("5")]
-    ProfissionalAutonomo,
+    [DFeEnum("5"), Description("Profissional Autônomo")]
+    ProfissionalAutonomo = 5,
 
     /// <summary>
     /// 6 - Sociedade de Profissionais
     /// </summary>
-    [DFeEnum("6")]
-    SociedadeProfissionais,
+    [DFeEnum("6"), Description("Sociedade de Profissionais")]
+    SociedadeProfissionais = 6,
 }

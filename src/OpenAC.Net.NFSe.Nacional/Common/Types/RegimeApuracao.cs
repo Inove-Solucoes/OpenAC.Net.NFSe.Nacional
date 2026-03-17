@@ -31,6 +31,7 @@
 
 
 using OpenAC.Net.DFe.Core.Attributes;
+using System.ComponentModel;
 
 namespace OpenAC.Net.NFSe.Nacional.Common.Types;
 
@@ -40,20 +41,26 @@ namespace OpenAC.Net.NFSe.Nacional.Common.Types;
 public enum RegimeApuracao
 {
     /// <summary>
+    /// Nenhum Regime de Apuração.
+    /// </summary>
+    [Description("Nenhum")]
+    Nenhum = 0,
+
+    /// <summary>
     /// Regime de apuração dos tributos federais e municipal pelo Simples Nacional.
     /// </summary>
-    [DFeEnum("1")]
-    TributosFederaisMunicipalSN,
+    [DFeEnum("1"), Description("Tributos Federais + Municipal (SN)")]
+    TributosFederaisMunicipalSN = 1,
 
     /// <summary>
     /// Regime de apuração dos tributos federais pelo Simples Nacional e ISSQN por fora do Simples Nacional conforme legislação municipal.
     /// </summary>
-    [DFeEnum("2")]
-    TributosFederaisSNISSQNPorForaSN,
+    [DFeEnum("2"), Description("Tributos Federais + ISSQN por Fora (SN)")]
+    TributosFederaisSNISSQNPorForaSN = 2,
 
     /// <summary>
     /// Regime de apuração dos tributos federais e municipal por fora do Simples Nacional conforme legislações federal e municipal.
     /// </summary>
-    [DFeEnum("3")]
-    TributosFederaisMunicipalForaSN
+    [DFeEnum("3"), Description("Tributos Federais + Municipal por Fora (SN)")]
+    TributosFederaisMunicipalForaSN = 3
 }

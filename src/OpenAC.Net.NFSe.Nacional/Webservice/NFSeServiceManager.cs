@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using OpenAC.Net.Core;
+﻿using OpenAC.Net.Core;
 using OpenAC.Net.Core.Extensions;
 using OpenAC.Net.DFe.Core.Common;
 using OpenAC.Net.NFSe.Nacional.Common;
 using OpenAC.Net.NFSe.Nacional.Common.Types;
+using OpenAC.Net.NFSe.Nacional.Webservice.ELGPI;
 using OpenAC.Net.NFSe.Nacional.Webservice.Nacional;
 using OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace OpenAC.Net.NFSe.Nacional.Webservice;
 
@@ -63,6 +64,27 @@ public sealed class NFSeServiceManager
                 {
                     { VersaoNFSe.Ve100, typeof(VilaVelhaSoapWebservice) },
                     { VersaoNFSe.Ve101, typeof(VilaVelhaSoapWebservice) }
+                }
+            },
+            {
+                NFSeProvider.DomingosMartins, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                }
+            },
+            {
+                NFSeProvider.Marilandia, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                }
+            },
+            {
+                NFSeProvider.Mantenopolis, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             }
         };

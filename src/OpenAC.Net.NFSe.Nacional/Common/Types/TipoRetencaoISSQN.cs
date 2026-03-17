@@ -30,6 +30,7 @@
 // ***********************************************************************
 
 using OpenAC.Net.DFe.Core.Attributes;
+using System.ComponentModel;
 
 namespace OpenAC.Net.NFSe.Nacional.Common.Types;
 
@@ -41,18 +42,18 @@ public enum TipoRetencaoISSQN
     /// <summary>
     /// 1 - Não Retido.
     /// </summary>
-    [DFeEnum("1")]
-    NaoRetido,
+    [DFeEnum("1"), Description("Não Retido")]
+    NaoRetido = 0,
     
     /// <summary>
     /// 2 - Retido pelo Tomador.
     /// </summary>
-    [DFeEnum("2")]
-    RetidoTomador,
+    [DFeEnum("2"), Description("Retido pelo Tomador")]
+    RetidoTomador = 1,
     
     /// <summary>
     /// 3 - Retido pelo Intermediário.
     /// </summary>
-    [DFeEnum("3")]
-    RetidoIntermediario
+    [DFeEnum("3"), Description("Retido pelo Intermediário")]
+    RetidoIntermediario = 2
 }

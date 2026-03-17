@@ -281,5 +281,23 @@ public enum NFSeProvider : sbyte
     /// Vila Velha Soap
     ///</summary>
     [Description("Vila Velha SOAP")]
-    VilaVelhaSoap = 55
+    VilaVelhaSoap = 55,
+
+    /// <summary>
+    /// Domingos Martins
+    /// </summary>
+    [Description("Domingos Martins")]
+    DomingosMartins = 56,
+
+    /// <summary>
+    /// Marilândia
+    /// </summary>
+    [Description("Marilândia")]
+    Marilandia = 57,
+
+    /// <summary>
+    /// Mantenópolis
+    /// </summary>
+    [Description("Mantenópolis")]
+    Mantenopolis = 58
 }

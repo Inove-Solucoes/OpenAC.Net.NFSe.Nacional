@@ -30,6 +30,7 @@
 // ***********************************************************************
 
 using OpenAC.Net.DFe.Core.Attributes;
+using System.ComponentModel;
 
 namespace OpenAC.Net.NFSe.Nacional.Common.Types;
 
@@ -41,19 +42,19 @@ public enum OptanteSimplesNacional
     /// <summary>
     /// Não optante pelo Simples Nacional.
     /// </summary>
-    [DFeEnum("1")]
-    NaoOptante,
+    [DFeEnum("1"), Description("Não Optante")]
+    NaoOptante = 0,
     
     /// <summary>
     /// Optante pelo Simples Nacional - MEI.
     /// </summary>
-    [DFeEnum("2")]
-    OptanteMEI,
+    [DFeEnum("2"), Description("Optante ME/EPP")]
+    OptanteMEI = 1,
     
     /// <summary>
     /// Optante pelo Simples Nacional - ME/EPP.
     /// </summary>
-    [DFeEnum("3")]
-    OptanteMEEPP
+    [DFeEnum("3"), Description("Optante MEI")]
+    OptanteMEEPP = 2
 }
 

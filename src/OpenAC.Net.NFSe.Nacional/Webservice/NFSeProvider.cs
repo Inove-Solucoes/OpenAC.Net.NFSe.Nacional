@@ -299,5 +299,17 @@ public enum NFSeProvider : sbyte
     /// Mantenópolis
     /// </summary>
     [Description("Mantenópolis")]
-    Mantenopolis = 58
+    Mantenopolis = 58,
+
+    /// <summary>
+    /// Rio Novo do Sul
+    /// </summary>
+    [Description("Rio Novo do Sul")]
+    RioNovoDoSul = 59,
+
+    /// <summary>
+    /// Boa Esperança
+    /// </summary>
+    [Description("Boa Esperança")]
+    BoaEsperanca = 60
 }

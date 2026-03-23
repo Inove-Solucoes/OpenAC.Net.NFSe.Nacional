@@ -170,5 +170,39 @@
 				</Ambiente>
 			</Ambientes>
 		</serviceInfo>
+		<serviceInfo Id="3204401">
+			<Tipo>RioNovoDoSul</Tipo>
+			<Nome>Rio Novo do sul</Nome>
+			<UF>ES</UF>
+			<Ambientes>
+				<Ambiente Tipo="2">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+				<Ambiente Tipo="1">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+			</Ambientes>
+		</serviceInfo>
+		<serviceInfo Id="3201001">
+			<Tipo>BoaEsperanca</Tipo>
+			<Nome>Boa Esperança</Nome>
+			<UF>ES</UF>
+			<Ambientes>
+				<Ambiente Tipo="2">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+				<Ambiente Tipo="1">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+			</Ambientes>
+		</serviceInfo>
 	</Services>
 </NFSeServices>

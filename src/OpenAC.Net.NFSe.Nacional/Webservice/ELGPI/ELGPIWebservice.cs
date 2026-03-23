@@ -27,7 +27,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// <param name="serviceInfo">Informações do serviço</param>
         public ELGPIWebservice(ConfiguracaoNFSe configuracaoNFSe, NFSeServiceInfo serviceInfo)
             : base(configuracaoNFSe, serviceInfo)
-        { Console.WriteLine("Provider Domingos Martins Caregado."); }
+        { Console.WriteLine("Provider ELG GPI Caregado."); }
 
         #endregion Constructor
 
@@ -120,7 +120,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         public override async Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps)
         {
             if (dps.Informacoes.Servico.InformacoesComplementares == null || string.IsNullOrEmpty(dps.Informacoes.Servico.InformacoesComplementares.Informacoes))
-                throw new Exception("O Token de acesso não foi informador nas configurações");
+                throw new Exception("O Token de acesso não foi informado nas configurações");
 
             var token = dps.Informacoes.Servico.InformacoesComplementares.Informacoes;
             dps.Informacoes.Servico.InformacoesComplementares.Informacoes = string.Empty;

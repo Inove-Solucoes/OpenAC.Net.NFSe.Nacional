@@ -86,6 +86,20 @@ public sealed class NFSeServiceManager
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
                     { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
+            },
+            {
+                NFSeProvider.RioNovoDoSul, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                }
+            },
+            {
+                NFSeProvider.BoaEsperanca, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                }
             }
         };
 

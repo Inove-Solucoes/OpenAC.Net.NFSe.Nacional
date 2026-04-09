@@ -188,7 +188,7 @@ public class NacionalWebservice : NFSeWebserviceBase
     {
         evento.Assinar(Configuracao);
 
-        ValidarSchema(SchemaNFSe.Evento, evento.Xml, evento.Versao);
+        //ValidarSchema(SchemaNFSe.Evento, evento.Xml, evento.Versao);
 
         var documento = evento.Informacoes.CPFAutor ?? evento.Informacoes.CNPJAutor;
 

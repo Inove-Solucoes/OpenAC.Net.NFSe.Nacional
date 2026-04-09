@@ -30,6 +30,7 @@
 // ***********************************************************************
 
 using OpenAC.Net.DFe.Core.Attributes;
+using System.ComponentModel;
 
 namespace OpenAC.Net.NFSe.Nacional.Common.Types;
 
@@ -41,18 +42,18 @@ public enum MotivoCancelamento
     /// <summary>
     /// Erro na Emissão.
     /// </summary>
-    [DFeEnum("1")]
+    [Description("Erro na Emissão"), DFeEnum("1")]
     ErroEmissao,
 
     /// <summary>
     /// Serviço não Prestado.
     /// </summary>
-    [DFeEnum("2")]
+    [Description("Serviço Não Prestado"), DFeEnum("2")]
     ServicoNaoPrestado,
 
     /// <summary>
     /// Outros motivos.
     /// </summary>
-    [DFeEnum("9")]
+    [Description("Outros Motivos"), DFeEnum("9")]
     Outros
 }

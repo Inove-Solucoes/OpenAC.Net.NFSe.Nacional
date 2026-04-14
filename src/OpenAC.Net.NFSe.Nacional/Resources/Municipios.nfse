@@ -124,14 +124,12 @@
 			<Ambientes>
 				<Ambiente Tipo="2">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
-						<Endereco Tipo="EnviarEvento">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse/{chaveAcesso}/eventos</Endereco>
+						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse</Endereco>
-						<Endereco Tipo="EnviarEvento">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse/{chaveAcesso}/eventos</Endereco>
+						<Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br:443/nfse34/NfseWSService</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -143,12 +141,12 @@
 			<Ambientes>
 				<Ambiente Tipo="2">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br:443/producao/NfseWSService</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -160,12 +158,12 @@
 			<Ambientes>
 				<Ambiente Tipo="2">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br:443/producao12/NfseWSService</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -177,12 +175,12 @@
 			<Ambientes>
 				<Ambiente Tipo="2">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br:443/producao12/NfseWSService</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -194,12 +192,12 @@
 			<Ambientes>
 				<Ambiente Tipo="2">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/NfseWSService?wsdl</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>

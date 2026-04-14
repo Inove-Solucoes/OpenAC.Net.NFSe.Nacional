@@ -47,5 +47,10 @@ public enum VersaoNFSe
     /// Versão 1.01 do padrão NFSe.
     /// </summary>
     [DFeEnum("1.01")]
-    Ve101
+    Ve101,
+    /// <summary>
+    /// Versão 2.04 do padrão ABRASF
+    /// </summary>
+    [DFeEnum("2-04")]
+    Ve204
 }

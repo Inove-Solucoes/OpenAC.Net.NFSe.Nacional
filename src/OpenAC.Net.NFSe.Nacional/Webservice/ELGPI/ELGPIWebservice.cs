@@ -12,7 +12,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 {
     /// <summary>
     /// Provedor para o Webservice ELGPI.
-    /// Este é o provedor dos municípios de Domingos Martins, Marilândia e Mantenópolis
+    /// Este é o provedor de 27 municípios
     /// Autor: Lucas Giovani de Paula Salgado
     /// Contato: lucas@salgado.dev
     /// Data: 13/03/2026

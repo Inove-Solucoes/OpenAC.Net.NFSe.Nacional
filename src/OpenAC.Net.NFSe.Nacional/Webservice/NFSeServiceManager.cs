@@ -4,6 +4,7 @@ using OpenAC.Net.DFe.Core.Common;
 using OpenAC.Net.NFSe.Nacional.Common;
 using OpenAC.Net.NFSe.Nacional.Common.Types;
 using OpenAC.Net.NFSe.Nacional.Webservice.ELGPI;
+using OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap;
 using OpenAC.Net.NFSe.Nacional.Webservice.Nacional;
 using OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap;
 using System;
@@ -70,35 +71,40 @@ public sealed class NFSeServiceManager
                 NFSeProvider.DomingosMartins, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
                 }
             },
             {
                 NFSeProvider.Marilandia, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
                 }
             },
             {
                 NFSeProvider.Mantenopolis, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
                 }
             },
             {
                 NFSeProvider.RioNovoDoSul, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
                 }
             },
             {
                 NFSeProvider.BoaEsperanca, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
+                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
                 }
             }
         };

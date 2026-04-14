@@ -45,4 +45,9 @@ public enum SchemaNFSe
     /// Evento relacionado ao NFSe.
     /// </summary>
     Evento = 1,
+
+    /// <summary>
+    /// Recibo Provisório de Serviços (RPS) no modelo ABRASF
+    /// </summary>
+    AbrasfRPS = 2,
 }

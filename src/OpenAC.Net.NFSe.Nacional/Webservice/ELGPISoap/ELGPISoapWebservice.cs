@@ -1,5 +1,4 @@
-﻿using OpenAC.Net.Core.Extensions;
-using OpenAC.Net.Core.Logging;
+﻿using OpenAC.Net.Core.Logging;
 using OpenAC.Net.NFSe.Nacional.Common;
 using OpenAC.Net.NFSe.Nacional.Common.Model;
 using OpenAC.Net.NFSe.Nacional.Common.Types;
@@ -164,6 +163,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap
             XNamespace ns = "http://www.abrasf.org.br/nfse.xsd";
             var inf = dps.Informacoes;
 
+            MunicipioNacional tomadorMunicipio = (MunicipioNacional)inf.Tomador.Endereco.Municipio;
+
             var root = new XElement(ns + "GerarNfseEnvio",
                 new XAttribute(XNamespace.Xmlns + "ns1", ns),
                 new XElement(ns + "Rps",
@@ -174,7 +175,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap
                             new XAttribute("Id", inf.NumeroDps),
                             new XElement(ns + "IdentificacaoRps",
                                 new XElement(ns + "Numero", inf.NumeroDps),
-                                new XElement(ns + "Serie", "1"),
+                                new XElement(ns + "Serie", "NFE"),
                                 new XElement(ns + "Tipo", "1")
                             ),
                             new XElement(ns + "DataEmissao", inf.DhEmissao.ToString("yyyy-MM-dd")),
@@ -193,7 +194,6 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap
                                 new XElement(ns + "ValorIr", "0.00"),
                                 new XElement(ns + "ValorCsll", "0.00"),
                                 new XElement(ns + "OutrasRetencoes", "0.00"),
-                                new XElement(ns + "ValTotTributos", "0.00"),
                                 new XElement(ns + "ValorIss", Uteis.FormatarValorPadraoNFSe(
                                     (inf.Valores.ValoresServico.Valor - (inf.Valores.ValoresDeducaoReducao != null ? inf.Valores.ValoresDeducaoReducao.Valor.Value : 0.00m))
                                     * (inf.Valores.Tributos.Total.PorcentagemTotal.TotalMunicipal / 100m))),
@@ -205,11 +205,12 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap
                             new XElement(ns + "IssRetido", inf.Valores.Tributos.Municipal.TipoRetencaoISSQN == 0 ? 2 : 1),
                             new XElement(ns + "ItemListaServico", inf.Servico.Informacoes.CodTributacaoMunicipio),
                             new XElement(ns + "CodigoTributacaoMunicipio", inf.Servico.Informacoes.CodTributacaoMunicipio),
-                            new XElement(ns + "CodigoServicoNacional", "210101"),
+                            new XElement(ns + "CodigoServicoNacional", inf.Servico.Informacoes.CodTributacaoNacional),
                             new XElement(ns + "CodigoNbs", inf.Servico.Informacoes.CodNBS),
                             new XElement(ns + "Discriminacao", Regex.Replace(inf.Servico.Informacoes.Descricao, @"\s+", " ").Trim()),
                             new XElement(ns + "CodigoMunicipio", inf.Servico.Localidade.CodMunicipioPrestacao),
-                            new XElement(ns + "ExigibilidadeISS", "1")
+                            new XElement(ns + "ExigibilidadeISS", "1"),
+                            new XElement(ns + "MunicipioIncidencia", inf.Servico.Localidade.CodMunicipioPrestacao)
                         ),
 
                         new XElement(ns + "Prestador",
@@ -229,7 +230,15 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap
                                         : new XElement(ns + "Cnpj", inf.Tomador.CNPJ)
                                 )
                             ),
-                            new XElement(ns + "RazaoSocial", inf.Tomador.Nome)
+                            new XElement(ns + "RazaoSocial", inf.Tomador.Nome),
+                            new XElement(ns + "Endereco",
+                                new XElement(ns + "Endereco", inf.Tomador.Endereco.Logradouro),
+                                new XElement(ns + "Numero", inf.Tomador.Endereco.Numero),
+                                new XElement(ns + "Bairro", inf.Tomador.Endereco.Bairro),
+                                new XElement(ns + "CodigoMunicipio", tomadorMunicipio.CodMunicipio),
+                                new XElement(ns + "Uf", "ES"),
+                                new XElement(ns + "Cep", tomadorMunicipio.CEP)
+                            )
                         ),
 
                         new XElement(ns + "OptanteSimplesNacional", inf.Prestador.Regime.OptanteSimplesNacional == 0 ? 2 : 1),

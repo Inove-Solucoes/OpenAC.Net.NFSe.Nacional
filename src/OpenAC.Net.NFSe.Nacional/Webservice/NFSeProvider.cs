@@ -311,5 +311,137 @@ public enum NFSeProvider : sbyte
     /// Boa Esperança
     /// </summary>
     [Description("Boa Esperança")]
-    BoaEsperanca = 60
+    BoaEsperanca = 60,
+
+    /// <summary>
+    /// Afonso Claudio
+    /// </summary>
+    [Description("Afonso Claudio")]
+    AfonsoClaudio = 61,
+
+    /// <summary>
+    /// Água Doce do Norte
+    /// </summary>
+    [Description("Água Doce do Norte")]
+    AguaDoceDoNorte = 62,
+
+    /// <summary>
+    /// Alegre
+    /// </summary>
+    [Description("Alegre")]
+    Alegre = 63,
+
+    /// <summary>
+    /// Alto Rio Novo
+    /// </summary>
+    [Description("Alto Rio Novo")]
+    AltoRioNovo = 64,
+
+    /// <summary>
+    /// Apiacá
+    /// </summary>
+    [Description("Apiacá")]
+    Apiaca = 65,
+
+    /// <summary>
+    /// Dores do Rio Preto
+    /// </summary>
+    [Description("Dores do Rio Preto")]
+    DoresDoRioPreto = 66,
+
+    /// <summary>
+    /// Ecoporanga
+    /// </summary>
+    [Description("Ecoporanga")]
+    Ecoporanga = 67,
+
+    /// <summary>
+    /// Fundão
+    /// </summary>
+    [Description("Fundão")]
+    Fundao = 68,
+
+    /// <summary>
+    /// Guaçuí
+    /// </summary>
+    [Description("Guaçuí")]
+    Guacui = 69,
+
+    /// <summary>
+    /// Ibiraçu
+    /// </summary>
+    [Description("Ibiraçu")]
+    Ibiracu = 70,
+
+    /// <summary>
+    /// Ibitirama
+    /// </summary>
+    [Description("Ibitirama")]
+    Ibitirama = 71,
+
+    /// <summary>
+    /// Itaguaçu
+    /// </summary>
+    [Description("Itaguaçu")]
+    Itaguacu = 72,
+
+    /// <summary>
+    /// Itapemirim
+    /// </summary>
+    [Description("Itapemirim")]
+    Itapemirim = 73,
+
+    /// <summary>
+    /// Itarana
+    /// </summary>
+    [Description("Itarana")]
+    Itarana = 74,
+
+    /// <summary>
+    /// Jerônimo Monteiro
+    /// </summary>
+    [Description("Jerônimo Monteiro")]
+    JeronimoMonteiro = 75,
+
+    /// <summary>
+    /// João Neiva
+    /// </summary>
+    [Description("João Neiva")]
+    JoaoNeiva = 76,
+
+    /// <summary>
+    /// Marataizes
+    /// </summary>
+    [Description("Marataizes")]
+    Marataizes = 77,
+
+    /// <summary>
+    /// Marechal Floriano
+    /// </summary>
+    [Description("Marechal Floriano")]
+    MarechalFloriano = 78,
+
+    /// <summary>
+    /// Mimoso do Sul
+    /// </summary>
+    [Description("Mimoso do Sul")]
+    MimosoDoSul = 79,
+
+    /// <summary>
+    /// Nova Venécia
+    /// </summary>
+    [Description("Nova Venécia")]
+    NovaVenecia = 80,
+
+    /// <summary>
+    /// Pancas
+    /// </summary>
+    [Description("Pancas")]
+    Pancas = 81,
+
+    /// <summary>
+    /// Piúma
+    /// </summary>
+    [Description("Piúma")]
+    Piuma = 82
 }

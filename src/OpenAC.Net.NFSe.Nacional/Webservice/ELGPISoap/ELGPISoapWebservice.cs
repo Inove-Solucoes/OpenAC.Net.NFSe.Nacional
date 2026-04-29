@@ -488,7 +488,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap
                 SslProtocols = (System.Security.Authentication.SslProtocols)Configuracao.WebServices.Protocolos
             };
 
-            handler.ClientCertificates.Add(Configuracao.Certificados.ObterCertificado());
+            //handler.ClientCertificates.Add(Configuracao.Certificados.ObterCertificado());
 
             using var client = new HttpClient(handler);
             using var request = new HttpRequestMessage(method, url);

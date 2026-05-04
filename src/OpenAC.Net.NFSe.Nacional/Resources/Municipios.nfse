@@ -256,6 +256,24 @@
 				</Ambiente>
 			</Ambientes>
 		</serviceInfo>
+		<serviceInfo Id="3200359">
+			<Tipo>AltoRioNovo</Tipo>
+			<Nome>Alto Rio Novo</Nome>
+			<UF>ES</UF>
+			<Ambientes>
+				<Ambiente Tipo="2">
+					<Enderecos>
+						<!--Padrão Nacional-->
+						<Endereco Tipo="Enviar">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+				<Ambiente Tipo="1">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br:443/producao20/NfseWSService</Endereco>
+					</Enderecos>
+				</Ambiente>
+			</Ambientes>
+		</serviceInfo>
 		<serviceInfo Id="3200508">
 			<Tipo>Apiaca</Tipo>
 			<Nome>Apiacá</Nome>

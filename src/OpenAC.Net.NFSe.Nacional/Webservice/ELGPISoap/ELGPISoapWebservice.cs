@@ -203,6 +203,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap
                                 new XElement(ns + "DescontoCondicionado", "0")
                             ),
                             new XElement(ns + "IssRetido", inf.Valores.Tributos.Municipal.TipoRetencaoISSQN == 0 ? 2 : 1),
+                            (int)inf.Valores.Tributos.Municipal.TipoRetencaoISSQN == 0 ? "" : new XElement(ns + "ResponsavelRetencao", (int)inf.Valores.Tributos.Municipal.TipoRetencaoISSQN),
                             new XElement(ns + "ItemListaServico", inf.Servico.Informacoes.CodTributacaoMunicipio),
                             new XElement(ns + "CodigoTributacaoMunicipio", inf.Servico.Informacoes.CodTributacaoMunicipio),
                             new XElement(ns + "CodigoServicoNacional", inf.Servico.Informacoes.CodTributacaoNacional),

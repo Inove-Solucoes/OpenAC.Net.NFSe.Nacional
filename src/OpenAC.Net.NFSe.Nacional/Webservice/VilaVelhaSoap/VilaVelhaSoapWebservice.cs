@@ -1,12 +1,14 @@
-﻿using OpenAC.Net.Core.Logging;
+﻿using OpenAC.Net.Core.Extensions;
+using OpenAC.Net.Core.Logging;
+using OpenAC.Net.DFe.Core.Extensions;
 using OpenAC.Net.NFSe.Nacional.Common;
 using OpenAC.Net.NFSe.Nacional.Common.Model;
 using OpenAC.Net.NFSe.Nacional.Common.Types;
 using System;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -108,7 +110,51 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// <returns>Resposta do envio do evento.</returns>
         public override async Task<NFSeResponse<RespostaEnvioEvento>> EnviarEventoAsync(PedidoRegistroEvento evento)
         {
-            throw new System.NotImplementedException();
+            var xmlEvento = AdicionarEventoDeCancelarVilaVelha(evento);
+
+            xmlEvento = Uteis.AssinarUsandoOCampoInfEvento(xmlEvento, Configuracao);
+
+            var soapXml = Uteis.MontarSoap(xmlEvento, "NotaFiscalNacionalCancelar");
+
+            var documento = evento.Informacoes.CPFAutor ?? evento.Informacoes.CNPJAutor;
+
+            GravarDpsEmDisco(soapXml, $"{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}_evento.xml",
+            documento, evento.Informacoes.DhEvento.DateTime);
+
+            var envio = new EventoEnvio
+            {
+                XmlEvento = soapXml
+            };
+
+
+            var content = new StringContent(soapXml, Encoding.UTF8, "text/xml");
+            var strEnvio = await content.ReadAsStringAsync();
+
+            this.Log().Debug($"Webservice: [Evento][Envio] - {strEnvio}");
+
+            GravarArquivoEmDisco(strEnvio, $"Evento-{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}-env.xml",
+                documento);
+
+            var url = ServiceInfo[Configuracao.WebServices.Ambiente][Common.Types.TipoUrl.EnviarEvento];
+            content.Headers.Clear();
+            content.Headers.Add("Content-Type", "text/xml; charset=utf-8");
+
+            var httpResponse = await SendAsync(content, HttpMethod.Post, url);
+
+            var strResponse = await httpResponse.Content.ReadAsStringAsync();
+
+            this.Log().Debug($"Webservice: [Evento][Resposta] - {strResponse}");
+
+            GravarArquivoEmDisco(strResponse, $"Evento-{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}-resp.xml",
+                documento);
+
+            var jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+            };
+
+            return NFSeResponse<RespostaEnvioEvento>.Create(evento.Xml, strEnvio, strResponse,
+                httpResponse.IsSuccessStatusCode, jsonOptions);
         }
 
         #endregion Eventos
@@ -207,6 +253,47 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
             dps.Informacoes.Servico.Localidade.CodMunicipioPrestacao = "3205200";
         }
 
+        private static string AdicionarEventoDeCancelarVilaVelha(PedidoRegistroEvento evento)
+        {
+            XNamespace ns = "http://www.sped.fazenda.gov.br/nfse";
+
+            EventoCancelamento cancelamento = (EventoCancelamento)evento.Informacoes.Evento;
+
+            string infEvtId = "EVT" + evento.Informacoes.Id.Substring(3) + evento.Informacoes.nSeq;
+
+            var canEvt = new XDocument(
+                new XElement(ns + "evento",
+                    new XAttribute("versao", "1.00"),
+                    new XElement(ns + "infEvento",
+                        new XAttribute("Id", infEvtId),
+                        new XElement(ns + "verAplic", "SilTecnologia_v1.00"),
+                        new XElement(ns + "ambGer", "1"),
+                        new XElement(ns + "nSeqEvento", evento.Informacoes.nSeq),
+                        new XElement(ns + "dhProc", evento.Informacoes.DhEvento.ToString("yyyy-MM-ddTHH:mm:sszzz")),
+                        new XElement(ns + "nDFSe", evento.Informacoes.nSeq),
+                        new XElement(ns + "pedRegEvento",
+                        new XAttribute("versao", "1.00"),
+                            new XElement(ns + "infPedReg",
+                                new XAttribute("Id", evento.Informacoes.Id),
+                                new XElement("tpAmb", "1"),
+                                new XElement(ns + "verAplic", "SilTecnologia_v1.00"),
+                                new XElement(ns + "dhEvento", evento.Informacoes.DhEvento.ToString("yyyy-MM-ddTHH:mm:sszzz")),
+                                new XElement(ns + (string.IsNullOrEmpty(evento.Informacoes.CPFAutor) ? "CNPJAutor" : "CPFAutor"), string.IsNullOrEmpty(evento.Informacoes.CPFAutor) ? evento.Informacoes.CNPJAutor.OnlyNumbers() : evento.Informacoes.CPFAutor.OnlyNumbers()),
+                                new XElement(ns + "chNFSe", evento.Informacoes.ChNFSe),
+                                new XElement(ns + "e101101", 
+                                    new XElement(ns + "xDesc", cancelamento.Descricao),
+                                    new XElement(ns + "cMotivo", cancelamento.CodMotivo.GetDFeValue()),
+                                    new XElement(ns + "xMotivo", cancelamento.Motivo)
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+
+            return canEvt.ToString();
+        }
+
         private static string AdicionarNFSeVilaVelha(string xmlEnvio, Dps dps)
         {
             xmlEnvio = xmlEnvio.Replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>", "").Trim();
@@ -265,9 +352,11 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
                         new XElement(ns + "valores",
                             new XElement(ns + "vBC", Uteis.FormatarValorPadraoNFSe(dps.Informacoes.Valores.ValoresServico.Valor)),
                             new XElement(ns + "pAliqAplic", Uteis.FormatarValorPadraoNFSe(dps.Informacoes.Valores.Tributos.Total.PorcentagemTotal.TotalMunicipal)),
-                            new XElement(ns + "vISSQN", Uteis.FormatarValorPadraoNFSe(dps.Informacoes.Valores.ValoresServico.Valor * (dps.Informacoes.Valores.Tributos.Total.PorcentagemTotal.TotalMunicipal/100m))),
-                            new XElement(ns + "vTotalRet", "0.00"),
-                            new XElement(ns + "vLiq", Uteis.FormatarValorPadraoNFSe(dps.Informacoes.Valores.ValoresServico.Valor))
+                            new XElement(ns + "vISSQN", Uteis.FormatarValorPadraoNFSe(
+                                    (dps.Informacoes.Valores.ValoresServico.Valor - (dps.Informacoes.Valores.ValoresDeducaoReducao != null ? dps.Informacoes.Valores.ValoresDeducaoReducao.Valor.Value : 0.00m))
+                                    * (dps.Informacoes.Valores.Tributos.Total.PorcentagemTotal.TotalMunicipal / 100m))),
+                            new XElement(ns + "vTotalRet", Uteis.FormatarValorPadraoNFSe(dps.Informacoes.Valores.ValoresDeducaoReducao != null ? dps.Informacoes.Valores.ValoresDeducaoReducao.Valor.Value : 0.00m)),
+                            new XElement(ns + "vLiq", Uteis.FormatarValorPadraoNFSe(dps.Informacoes.Valores.ValoresServico.Valor - (dps.Informacoes.Valores.ValoresDeducaoReducao != null ? dps.Informacoes.Valores.ValoresDeducaoReducao.Valor.Value : 0.00m)))
                         ),
                         dpsElement
                     )
@@ -289,12 +378,13 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
             string? nro = end.Elements().FirstOrDefault(x => x.Name.LocalName == "nro")?.Value;
             string? xCpl = end.Elements().FirstOrDefault(x => x.Name.LocalName == "xCpl")?.Value;
             string? xBairro = end.Elements().FirstOrDefault(x => x.Name.LocalName == "xBairro")?.Value;
+            string? cep = end.Elements().FirstOrDefault(x => x.Name.LocalName == "CEP")?.Value;
 
             // Como no seu DPS de prestador não existe cMun/UF/CEP dentro de <end>,
             // você precisa preencher manualmente ou puxar de outra fonte.
             var cMun = "3205200";
             var uf = "ES";
-            var cep = "29100000"; // troque pelo CEP real se tiver
+            //var cep = "29100000"; // troque pelo CEP real se tiver
 
             var enderNac = new XElement(ns + "enderNac",
                 new XElement(ns + "xLgr", xLgr ?? "NAO INFORMADO"),

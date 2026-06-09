@@ -37,6 +37,72 @@ $@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/""
         }
 
         /// <summary>
+        /// Função para assinar e preencher a tag <signature> do XML de NFSe, utilizando o campo infEvento como referência para a assinatura. O certificado é obtido a partir da configuração do service provider.
+        /// </summary>
+        /// <param name="xmlEvento"></param>
+        /// <param name="configuracaoNFSe"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static string AssinarUsandoOCampoInfEvento(string xmlEvento, ConfiguracaoNFSe configuracaoNFSe)
+        {
+            var xmlDoc = new XmlDocument
+            {
+                PreserveWhitespace = true
+            };
+            xmlDoc.LoadXml(xmlEvento);
+
+            var nsMgr = new XmlNamespaceManager(xmlDoc.NameTable);
+            nsMgr.AddNamespace("nfse", "http://www.sped.fazenda.gov.br/nfse");
+
+            // Seleciona o nó infEvento
+            var infEventoNode = xmlDoc.SelectSingleNode("//nfse:infEvento", nsMgr) as XmlElement
+                                ?? throw new Exception("Elemento infEvento não encontrado para assinatura.");
+
+            var id = infEventoNode.GetAttribute("Id");
+            if (string.IsNullOrWhiteSpace(id))
+                throw new Exception("Atributo Id do infEvento não encontrado.");
+
+            var certificado = configuracaoNFSe.Certificados.ObterCertificado()
+                              ?? throw new Exception("Certificado não encontrado para assinatura.");
+
+            var signedXml = new SignedXml(xmlDoc)
+            {
+                SigningKey = certificado.GetRSAPrivateKey()
+            };
+
+            var reference = new Reference
+            {
+                Uri = "#" + id
+            };
+
+            reference.AddTransform(new XmlDsigEnvelopedSignatureTransform());
+            reference.AddTransform(new XmlDsigC14NTransform());
+            reference.DigestMethod = SignedXml.XmlDsigSHA1Url;
+
+            signedXml.AddReference(reference);
+
+            signedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigCanonicalizationUrl;
+            signedXml.SignedInfo.SignatureMethod = SignedXml.XmlDsigRSASHA1Url;
+
+            var keyInfo = new KeyInfo();
+            keyInfo.AddClause(new KeyInfoX509Data(certificado));
+            signedXml.KeyInfo = keyInfo;
+
+            signedXml.ComputeSignature();
+
+            var xmlSignature = signedXml.GetXml();
+
+            // insere a assinatura como filha de <evento>, após <infEvento>
+            var eventoNode = xmlDoc.DocumentElement ?? throw new Exception("Elemento evento não encontrado.");
+
+            var importedSignature = xmlDoc.ImportNode(xmlSignature, true);
+            eventoNode.AppendChild(importedSignature);
+
+            return xmlDoc.OuterXml;
+        }
+
+
+        /// <summary>
         /// Função para assinar e preencher a tag <signature> do XML de NFSe, utilizando o campo infNFSe como referência para a assinatura. O certificado é obtido a partir da configuração do service provider.
         /// </summary>
         /// <param name="xmlNfse">XML da NFSe com o campo infNFSe preenchido</param>

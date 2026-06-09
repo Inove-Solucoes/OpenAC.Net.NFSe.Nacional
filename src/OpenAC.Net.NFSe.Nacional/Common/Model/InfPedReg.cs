@@ -49,7 +49,12 @@ public sealed class InfPedReg
     /// </summary>
     [DFeAttribute(TipoCampo.Str, "Id")] 
     public string Id { get; set; } = string.Empty;
-    
+
+    /// <summary>
+    /// Número sequencial do evento.
+    /// </summary>
+    public string nSeq { get; set; } = "001";
+
     /// <summary>
     /// Tipo de ambiente (Produção ou Homologação).
     /// </summary>

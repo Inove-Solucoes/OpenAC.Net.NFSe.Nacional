@@ -221,7 +221,7 @@ public class NacionalWebservice : NFSeWebserviceBase
 
         var prefixoNomeArquivoDps = Configuracao.Arquivos.PadronizarNomes
             ? evento.Informacoes.Id
-            : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento}";
+            : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}";
 
         GravarDpsEmDisco(evento.Xml, $"{prefixoNomeArquivoDps}_evento.xml",
                 documento, evento.Informacoes.DhEvento.DateTime, true);
@@ -261,7 +261,7 @@ public class NacionalWebservice : NFSeWebserviceBase
         {
             var prefixoNomeArquivoEventoNfse = Configuracao.Arquivos.PadronizarNomes
                 ? evento.Informacoes.ChNFSe
-                : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento}";
+                : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}";
 
             var nSeqEvento = XDocument.Parse(retorno.Resultado.XmlEvento)
                 .Descendants()

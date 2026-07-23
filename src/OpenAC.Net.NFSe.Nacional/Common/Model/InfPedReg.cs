@@ -53,6 +53,7 @@ public sealed class InfPedReg
     /// <summary>
     /// Número sequencial do evento.
     /// </summary>
+    [DFeIgnore]
     public string nSeq { get; set; } = "001";
 
     /// <summary>

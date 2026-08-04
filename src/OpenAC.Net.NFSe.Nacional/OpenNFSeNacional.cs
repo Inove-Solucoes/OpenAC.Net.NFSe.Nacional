@@ -237,5 +237,32 @@ public sealed class OpenNFSeNacional : IOpenLog
         }
     }
 
+    /// <summary>
+    /// Verifica se uma NFS-e foi emitida a partir do Id do DPS.
+    /// </summary>
+    /// <param name="idDPS">Identificação da DPS.</param>
+    /// <param name="token">Token de Integração com a Prefeitura</param>
+    /// <returns>True se a NFS-e existe, caso contrário, false.</returns>
+    public Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token)
+    {
+        var provider = NFSeServiceManager.Instance.GetProvider(Configuracoes);
+        var oldProtocol = ServicePointManager.SecurityProtocol;
+
+        try
+        {
+            ServicePointManager.SecurityProtocol = Configuracoes.WebServices.Protocolos;
+            return provider.ConsultaExisteDpsAsync(idDPS, token);
+        }
+        catch (Exception exception)
+        {
+            this.Log().Error("[ConsultaExisteDps]", exception);
+            throw;
+        }
+        finally
+        {
+            ServicePointManager.SecurityProtocol = oldProtocol;
+        }
+    }
+
     #endregion Methods
 }

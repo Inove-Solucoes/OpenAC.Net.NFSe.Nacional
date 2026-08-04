@@ -163,24 +163,6 @@ $@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/""
         }
 
         /// <summary>
-        /// Gera o XML do DPS sem a assinatura, pois o OpenAC somente gera o XML ao chamar a função de assinar.
-        /// </summary>
-        /// <param name="dps">DPS da nota fiscal.</param>
-        /// <returns></returns>
-        public static string GerarXmlDpsSemAssinatura(Dps dps)
-        {
-            using var ms = new MemoryStream();
-
-            var serializer = DFeSerializer<Dps>.CreateSerializer<Dps>();
-            serializer.Serialize(dps, ms);
-
-            ms.Position = 0;
-
-            using var sr = new StreamReader(ms, Encoding.UTF8);
-            return sr.ReadToEnd();
-        }
-
-        /// <summary>
         /// Calcula o dígito verificador utilizando o método do Módulo 11.
         /// </summary>
         /// <param name="valor">Número base para o calculo.</param>

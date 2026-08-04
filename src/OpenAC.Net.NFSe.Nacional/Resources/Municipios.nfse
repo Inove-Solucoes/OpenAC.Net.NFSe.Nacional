@@ -122,14 +122,26 @@
 			<Nome>Domingos Martins</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br:443/nfse34/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://nfse-backend.domingosmartins.es.gov.br/nfse34/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -139,14 +151,26 @@
 			<Nome>Marilândia</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br:443/producao/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-marilandia-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -156,14 +180,26 @@
 			<Nome>Mantenópolis</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br:443/producao12/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-mantenopolis-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -173,14 +209,26 @@
 			<Nome>Rio Novo do sul</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br:443/producao12/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-rionovodosul-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -190,14 +238,26 @@
 			<Nome>Boa Esperança</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional--><Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br:443/producao20/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-boaesperanca-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -207,15 +267,26 @@
 			<Nome>Afonso Claudio</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br:443/producao30/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-afonsoclaudio-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -225,15 +296,26 @@
 			<Nome>Água Doce do Norte</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br:443/producao/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-aguadocedonorte-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -243,15 +325,26 @@
 			<Nome>Alegre</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-alegre-pm-nfs-backend.cloud.el.com.br:443/nfse13/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-alegre-pm-nfs-backend.cloud.el.com.br/nfse13/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -261,15 +354,26 @@
 			<Nome>Alto Rio Novo</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br:443/producao20/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-altorionovo-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -279,15 +383,26 @@
 			<Nome>Apiacá</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-apiaca-pm-nfs-backend.cloud.el.com.br:443/producao30/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-apiaca-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -297,15 +412,26 @@
 			<Nome>Dores do Rio Preto</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br:443/producao/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-doresdoriopreto-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -315,15 +441,26 @@
 			<Nome>Ecoporanga</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br:443/producao20/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-ecoporanga-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -333,15 +470,26 @@
 			<Nome>Fundão</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-fundao-pm-nfs-backend.cloud.el.com.br:443/producao/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-fundao-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -351,15 +499,26 @@
 			<Nome>Guaçuí</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-guacui-pm-nfs-backend.cloud.el.com.br:443/producao12/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-guacui-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -369,15 +528,26 @@
 			<Nome>Ibiraçu</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br:443/producao20/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-ibiracu-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -387,15 +557,26 @@
 			<Nome>Ibitirama</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br:443/producao12/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-ibitirama-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -405,15 +586,26 @@
 			<Nome>Itaguaçu</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br:443/producao12/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-itaguacu-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -423,15 +615,26 @@
 			<Nome>Itapemirim</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br:443/producao33/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-itapemirim-pm-nfs-backend.cloud.el.com.br/producao33/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -441,15 +644,26 @@
 			<Nome>Itarana</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-itarana-pm-nfs-backend.cloud.el.com.br:443/producao/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-itarana-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -459,15 +673,26 @@
 			<Nome>Jerônimo Monteiro</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br:443/producao30/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-jeronimomonteiro-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -477,15 +702,26 @@
 			<Nome>João Neiva</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br:443/producao12/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-joaoneiva-pm-nfs-backend.cloud.el.com.br/producao12/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -495,15 +731,26 @@
 			<Nome>Marataízes</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-marataizes-pm-nfs-backend.cloud.el.com.br:443/producao30/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-marataizes-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -513,15 +760,26 @@
 			<Nome>Mimoso do Sul</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br:443/producao30/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-mimosodosul-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -531,15 +789,26 @@
 			<Nome>Nova Venécia</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br:443/producao20/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-novavenecia-pm-nfs-backend.cloud.el.com.br/producao20/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -549,15 +818,26 @@
 			<Nome>Pancas</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-pancas-pm-nfs-backend.cloud.el.com.br:443/producao/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-pancas-pm-nfs-backend.cloud.el.com.br/producao/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>
@@ -567,15 +847,26 @@
 			<Nome>Piúma</Nome>
 			<UF>ES</UF>
 			<Ambientes>
-				<Ambiente Tipo="2">
+				<Ambiente Tipo="2"><!--Homologação-->
 					<Enderecos>
-						<!--Padrão Nacional-->
 						<Endereco Tipo="Enviar">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/homologacao/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 				<Ambiente Tipo="1">
 					<Enderecos>
-						<Endereco Tipo="Enviar">https://es-piuma-pm-nfs-backend.cloud.el.com.br:443/producao30/NfseWSService</Endereco>
+						<Endereco Tipo="Enviar">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="EnviarEvento">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/eventos</Endereco>
+						<Endereco Tipo="ConsultarNsu">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChave">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="DownloadDanfse">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultarChaveDps">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfse</Endereco>
+						<Endereco Tipo="ConsultaExisteDps">https://es-piuma-pm-nfs-backend.cloud.el.com.br/producao30/api/nacional/nfseDps</Endereco>
 					</Enderecos>
 				</Ambiente>
 			</Ambientes>

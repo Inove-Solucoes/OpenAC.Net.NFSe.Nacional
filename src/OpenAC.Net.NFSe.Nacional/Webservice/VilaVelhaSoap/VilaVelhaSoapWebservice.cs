@@ -99,15 +99,26 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Verifica se uma NFS-e foi emitida a partir do Id do DPS.
+        /// </summary>
+        /// <param name="idDPS">Identificação do DPS.</param>
+        /// <param name="token">Token de Integração com a Prefeitura</param>
+        /// <returns>True se existir, caso contrário false.</returns>
+        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token)
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion DPS
 
-        #region Eventos
+            #region Eventos
 
-        /// <summary>
-        /// Recepciona o Pedido de Registro de Evento e gera Eventos de NFS-e, crédito, débito e apuração.
-        /// </summary>
-        /// <param name="evento">Evento a ser enviado.</param>
-        /// <returns>Resposta do envio do evento.</returns>
+            /// <summary>
+            /// Recepciona o Pedido de Registro de Evento e gera Eventos de NFS-e, crédito, débito e apuração.
+            /// </summary>
+            /// <param name="evento">Evento a ser enviado.</param>
+            /// <returns>Resposta do envio do evento.</returns>
         public override async Task<NFSeResponse<RespostaEnvioEvento>> EnviarEventoAsync(PedidoRegistroEvento evento)
         {
             var xmlEvento = AdicionarEventoDeCancelarVilaVelha(evento);
@@ -168,13 +179,17 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// <returns>Resposta do envio da DPS.</returns>
         public override async Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps)
         {
-            AjustarDpsVilaVelha(ref dps);
+            // AjustarDpsVilaVelha(ref dps);
 
-            var xmlDps = Uteis.GerarXmlDpsSemAssinatura(dps);
+            //var xmlDps = Uteis.GerarXmlDpsSemAssinatura(dps);
 
-            ValidarSchema(SchemaNFSe.DPS, xmlDps, dps.Versao);
+            //xmlDps = dps.GetXml();
 
-            var xmlComNFse = AdicionarNFSeVilaVelha(xmlDps, dps);
+            dps.Assinar(Configuracao);
+
+            ValidarSchema(SchemaNFSe.DPS, dps.Xml, dps.Versao);
+
+            var xmlComNFse = AdicionarNFSeVilaVelha(dps.Xml, dps);
 
             xmlComNFse = Uteis.AssinarUsandoOCampoInfNFSe(xmlComNFse, Configuracao);
 
@@ -184,7 +199,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
 
             // salva DPS xml
             GravarDpsEmDisco(
-                xmlDps,
+                dps.Xml,
                 $"{dps.Informacoes.NumeroDps:000000}_dps.xml",
                 documento,
                 dps.Informacoes.DhEmissao.DateTime
@@ -192,7 +207,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
 
             var url = ServiceInfo[Configuracao.WebServices.Ambiente][Common.Types.TipoUrl.Enviar];
 
-            this.Log().Debug($"Webservice Vila Velha: [Enviar][Envio] - {soapXml}");
+            this.Log().Debug($"Webservice Vila Velha: [Enviar][Envio] - {dps.Xml}");
 
             // salva envio SOAP
             GravarArquivoEmDisco(
@@ -219,7 +234,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
             );
 
             var retorno = NFSeResponse<RespostaEnvioDps>.Create(
-                xmlDps,
+                dps.Xml,
                 soapXml,
                 respostaXml,
                 httpResponse.IsSuccessStatusCode
@@ -251,6 +266,14 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         {
             dps.Informacoes.LocalidadeEmitente = "3205200";
             dps.Informacoes.Servico.Localidade.CodMunicipioPrestacao = "3205200";
+
+            if (dps.Informacoes.Prestador.Endereco is { Municipio: null } endereco)
+            {
+                endereco.Municipio = new MunicipioNacional
+                {
+                    CodMunicipio = "3205200"
+                };
+            }
         }
 
         private static string AdicionarEventoDeCancelarVilaVelha(PedidoRegistroEvento evento)

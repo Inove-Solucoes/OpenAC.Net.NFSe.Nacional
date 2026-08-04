@@ -94,6 +94,27 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Verifica se uma NFS-e foi emitida a partir do Id do DPS.
+        /// </summary>
+        /// <param name="idDPS">Identificação do DPS.</param>
+        /// <param name="token">Token de Integração com a Prefeitura</param>
+        /// <returns>True se existir, caso contrário false.</returns>
+        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token)
+        {
+            if (string.IsNullOrEmpty(token))
+                throw new Exception("O Token de acesso não foi informado nas configurações");
+
+            var url = ServiceInfo[Configuracao.WebServices.Ambiente][TipoUrl.ConsultaExisteDps];
+            var httpResponse = await SendAsync(null, HttpMethod.Get, $"{url}/{idDPS}?token={token}");
+
+            var strResponse = await httpResponse.Content.ReadAsStringAsync();
+
+            var retorno = NFSeResponse<RespostaEnvioDps>.Create(string.Empty, string.Empty, strResponse, httpResponse.IsSuccessStatusCode, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase, PropertyNameCaseInsensitive = true });
+
+            return retorno;
+        }
+
         #endregion DPS
 
         #region Eventos
@@ -124,10 +145,6 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 
             var token = dps.Informacoes.Servico.InformacoesComplementares.Informacoes;
             dps.Informacoes.Servico.InformacoesComplementares.Informacoes = string.Empty;
-
-            dps.Informacoes.Servico.Informacoes.CodInterno = dps.Informacoes.Servico.Informacoes.CodTributacaoMunicipio;
-            dps.Informacoes.Servico.Informacoes.CodTributacaoMunicipio = string.Empty;
-            dps.Informacoes.Valores.Tributos.Municipal.Aliquota = dps.Informacoes.Valores.Tributos.Total.PorcentagemTotal.TotalMunicipal;
             
             dps.Assinar(Configuracao);
             
@@ -157,16 +174,10 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 
             this.Log().Debug($"Webservice ELG GPI: [Enviar][Resposta] - {strResponse}");
 
-            strResponse = strResponse
-                .Replace("\"tipoAmbiente\":\"HOMOLOGACAO\"", "\"tipoAmbiente\":2")
-                .Replace("\"tipoAmbiente\":\"PRODUCAO\"", "\"tipoAmbiente\":1");
-
-            strResponse = strResponse.Replace("\"mensagem\":{}", "\"mensagem\":\"Falha ao enviar\"");
-
             GravarArquivoEmDisco(strResponse, $"Enviar-{dps.Informacoes.NumeroDps:000000}-resp.json", documento);
             var retorno = NFSeResponse<RespostaEnvioDps>.Create(dps.Xml, await JsonContent.Create(envio.XmlDps).ReadAsStringAsync(), strResponse, httpResponse.IsSuccessStatusCode, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
-            if (retorno.Sucesso)
+            if (retorno.Sucesso && retorno.Resultado != null && !retorno.JsonRetorno.Contains("em processamento adn nacional"))
                 GravarNFSeEmDisco(retorno.Resultado.XmlNFSe, $"{dps.Informacoes.NumeroDps:000000}_nfse.xml", documento, dps.Informacoes.DhEmissao.DateTime);
 
             return retorno;

@@ -159,6 +159,17 @@ public class NacionalWebservice : NFSeWebserviceBase
     /// <summary>
     /// Verifica se uma NFS-e foi emitida a partir do Id do DPS.
     /// </summary>
+    /// <param name="idDPS">Identificação do DPS.</param>
+    /// <param name="token">Token de Integração com a Prefeitura</param>
+    /// <returns>True se existir, caso contrário false.</returns>
+    public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    /// <summary>
+    /// Verifica se uma NFS-e foi emitida a partir do Id do DPS.
+    /// </summary>
     /// <param name="id">Identificação do DPS.</param>
     /// <returns>True se existir, caso contrário false.</returns>
     public override async Task<bool> ConsultaExisteDpsAsync(string id)

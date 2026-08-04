@@ -4,7 +4,6 @@ using OpenAC.Net.DFe.Core.Common;
 using OpenAC.Net.NFSe.Nacional.Common;
 using OpenAC.Net.NFSe.Nacional.Common.Types;
 using OpenAC.Net.NFSe.Nacional.Webservice.ELGPI;
-using OpenAC.Net.NFSe.Nacional.Webservice.ELGPISoap;
 using OpenAC.Net.NFSe.Nacional.Webservice.Nacional;
 using OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap;
 using System;
@@ -43,184 +42,161 @@ public sealed class NFSeServiceManager
                 NFSeProvider.AfonsoClaudio, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.AguaDoceDoNorte, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Alegre, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.AltoRioNovo, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Apiaca, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.BoaEsperanca, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.DomingosMartins, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.DoresDoRioPreto, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Ecoporanga, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Fundao, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Guacui, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Ibiracu, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Ibitirama, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Itaguacu, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Itapemirim, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Itarana, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.JeronimoMonteiro, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.JoaoNeiva, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Mantenopolis, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Marataizes, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.MarechalFloriano, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Marilandia, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.MimosoDoSul, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
@@ -234,32 +210,28 @@ public sealed class NFSeServiceManager
                 NFSeProvider.NovaVenecia, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Pancas, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.Piuma, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {
                 NFSeProvider.RioNovoDoSul, new Dictionary<VersaoNFSe, Type>
                 {
                     { VersaoNFSe.Ve100, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) },
-                    { VersaoNFSe.Ve204, typeof(ELGPISoapWebservice) }
+                    { VersaoNFSe.Ve101, typeof(ELGPIWebservice) }
                 }
             },
             {

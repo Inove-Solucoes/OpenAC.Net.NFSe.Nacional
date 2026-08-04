@@ -112,6 +112,15 @@ public abstract class NFSeWebserviceBase : IOpenLog
     public abstract Task<bool> ConsultaExisteDpsAsync(string id);
 
     /// <summary>
+    /// Método exclusivo do provedor ELGPI
+    /// Verifica se uma NFS-e foi emitida a partir do Id do DPS e o Token da EL.
+    /// </summary>
+    /// <param name="idDPS">Identificação do DPS.</param>
+    /// <param name="token">Token de integração com a prefeitura.</param>
+    /// <returns>True se existir, caso contrário false.</returns>
+    public abstract Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token);
+
+    /// <summary>
     /// Recepciona o Pedido de Registro de Evento e gera Eventos de NFS-e, crédito, débito e apuração.
     /// </summary>
     /// <param name="evento">Evento a ser enviado.</param>

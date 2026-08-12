@@ -343,6 +343,11 @@ public class NacionalWebservice : NFSeWebserviceBase
         return retorno;
     }
 
+    public override Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token)
+    {
+        throw new System.NotImplementedException();
+    }
+
     #endregion NFS-e
 
     #endregion Methods

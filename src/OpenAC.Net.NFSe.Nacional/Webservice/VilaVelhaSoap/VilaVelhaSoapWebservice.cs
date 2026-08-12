@@ -424,6 +424,11 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
             return enderNac;
         }
 
+        public override Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion Métodos Auxiliares
     }
 }

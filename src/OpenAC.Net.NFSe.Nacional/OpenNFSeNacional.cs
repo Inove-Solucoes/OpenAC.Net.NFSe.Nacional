@@ -186,6 +186,33 @@ public sealed class OpenNFSeNacional : IOpenLog
     }
 
     /// <summary>
+    /// Retorna a NFS-e utilizando a chave de acesso
+    /// </summary>
+    /// <param name="id">Identificação do DPS.</param>
+    /// <param name="token">Token de integração com a prefeitura.</param>
+    /// <returns>Resposta da consulta contendo a chave de acesso.</returns>
+    public Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token)
+    {
+        var provider = NFSeServiceManager.Instance.GetProvider(Configuracoes);
+        var oldProtocol = ServicePointManager.SecurityProtocol;
+
+        try
+        {
+            ServicePointManager.SecurityProtocol = Configuracoes.WebServices.Protocolos;
+            return provider.ConsultaChaveDpsAsync(chave, token);
+        }
+        catch (Exception exception)
+        {
+            this.Log().Error("[ConsultaChaveDps]", exception);
+            throw;
+        }
+        finally
+        {
+            ServicePointManager.SecurityProtocol = oldProtocol;
+        }
+    }
+
+    /// <summary>
     /// Retorna a chave de acesso da NFS-e a partir do identificador do DPS.
     /// </summary>
     /// <param name="id">Identificação da DPS.</param>

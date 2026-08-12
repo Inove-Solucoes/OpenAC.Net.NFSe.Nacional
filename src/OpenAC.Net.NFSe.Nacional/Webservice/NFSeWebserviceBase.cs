@@ -105,6 +105,14 @@ public abstract class NFSeWebserviceBase : IOpenLog
     public abstract Task<NFSeResponse<RespostaConsultaChaveDps>> ConsultaChaveDpsAsync(string id);
 
     /// <summary>
+    /// Retorna a NFS-e utilizando a chave de acesso
+    /// </summary>
+    /// <param name="id">Identificação do DPS.</param>
+    /// <param name="token">Token de integração com a prefeitura.</param>
+    /// <returns>Resposta da consulta contendo a chave de acesso.</returns>
+    public abstract Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token);
+
+    /// <summary>
     /// Verifica se uma NFS-e foi emitida a partir do Id do DPS.
     /// </summary>
     /// <param name="id">Identificação do DPS.</param>

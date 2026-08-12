@@ -3,10 +3,13 @@ using OpenAC.Net.NFSe.Nacional.Common;
 using OpenAC.Net.NFSe.Nacional.Common.Model;
 using OpenAC.Net.NFSe.Nacional.Common.Types;
 using System;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 {
@@ -85,6 +88,27 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         }
 
         /// <summary>
+        /// Retorna a NFS-e utilizando a chave de acesso
+        /// </summary>
+        /// <param name="id">Identificação do DPS.</param>
+        /// <param name="token">Token de integração com a prefeitura.</param>
+        /// <returns>Resposta da consulta contendo a chave de acesso.</returns>
+        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token)
+        {
+            if (string.IsNullOrEmpty(token))
+                throw new Exception("O Token de acesso não foi informado nas configurações");
+
+            var url = ServiceInfo[Configuracao.WebServices.Ambiente][TipoUrl.ConsultarChave];
+            var httpResponse = await SendAsync(null, HttpMethod.Get, $"{url}/{chave}?token={token}");
+
+            var strResponse = await httpResponse.Content.ReadAsStringAsync();
+
+            var retorno = NFSeResponse<RespostaEnvioDps>.Create(string.Empty, string.Empty, strResponse, httpResponse.IsSuccessStatusCode, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase, PropertyNameCaseInsensitive = true });
+
+            return retorno;
+        }
+
+        /// <summary>
         /// Verifica se uma NFS-e foi emitida a partir do Id do DPS.
         /// </summary>
         /// <param name="id">Identificação do DPS.</param>
@@ -126,7 +150,91 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// <returns>Resposta do envio do evento.</returns>
         public override async Task<NFSeResponse<RespostaEnvioEvento>> EnviarEventoAsync(PedidoRegistroEvento evento)
         {
-            throw new System.NotImplementedException();
+            if (evento.Informacoes.Evento.Descricao == null || string.IsNullOrEmpty(evento.Informacoes.Evento.Descricao))
+                throw new Exception("O Token de acesso não foi informado nas configurações");
+
+            var token = evento.Informacoes.Evento.Descricao;
+            evento.Informacoes.Evento.Descricao = "Cancelamento de NFS-e";
+
+            evento.Assinar(Configuracao);
+
+            var documento = evento.Informacoes.CPFAutor ?? evento.Informacoes.CNPJAutor;
+
+            var prefixoNomeArquivoDps = Configuracao.Arquivos.PadronizarNomes
+                ? evento.Informacoes.Id
+                : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}";
+
+            GravarDpsEmDisco(evento.Xml, $"{prefixoNomeArquivoDps}_evento.xml",
+                    documento, evento.Informacoes.DhEvento.DateTime, true);
+
+            var envio = new EventoEnvio
+            {
+                XmlEvento = evento.Xml
+            };
+
+            var content = JsonContent.Create(envio);
+            var strEnvio = await content.ReadAsStringAsync();
+
+            this.Log().Debug($"Webservice: [Evento][Envio] - {strEnvio}");
+
+            GravarArquivoEmDisco(strEnvio, $"Evento-{prefixoNomeArquivoDps}-env.json",
+                documento);
+
+            var url = ServiceInfo[Configuracao.WebServices.Ambiente][TipoUrl.EnviarEvento];
+
+            const string sufixoEventos = "/eventos";
+            var urlBase = url.EndsWith(sufixoEventos, StringComparison.OrdinalIgnoreCase)
+                ? url.Substring(0, url.Length - sufixoEventos.Length)
+                : url.TrimEnd('/');
+            var urlEvento = $"{urlBase}/{evento.Informacoes.ChNFSe}/eventos?token={Uri.EscapeDataString(token)}";
+
+            var httpResponse = await SendAsync(content, HttpMethod.Post, urlEvento);
+
+            var strResponse = await httpResponse.Content.ReadAsStringAsync();
+
+            this.Log().Debug($"Webservice: [Evento][Resposta] - {strResponse}");
+
+            GravarArquivoEmDisco(strResponse, $"Evento-{prefixoNomeArquivoDps}-resp.json",
+                documento);
+
+            var jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+            };
+
+            RespostaEnvioEvento? respostaEvento = null;
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(strResponse))
+                    respostaEvento = JsonSerializer.Deserialize<RespostaEnvioEvento>(strResponse, jsonOptions);
+            }
+            catch (Exception)
+            {
+                // O retorno original será mantido em JsonRetorno para diagnóstico.
+            }
+
+            var sucesso = httpResponse.IsSuccessStatusCode &&
+                          respostaEvento != null &&
+                          respostaEvento.Erros.Count == 0 &&
+                          !string.IsNullOrWhiteSpace(respostaEvento.XmlEvento);
+
+            var retorno = NFSeResponse<RespostaEnvioEvento>.Create(evento.Xml, strEnvio, strResponse, sucesso, jsonOptions);
+
+            if (retorno.Sucesso && retorno.Resultado != null &&
+                !string.IsNullOrWhiteSpace(retorno.Resultado.XmlEvento))
+            {
+                var prefixoNomeArquivoEventoNfse = Configuracao.Arquivos.PadronizarNomes
+                    ? evento.Informacoes.ChNFSe
+                    : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}";
+
+                var nSeqEvento = XDocument.Parse(retorno.Resultado.XmlEvento)
+                    .Descendants()
+                    .FirstOrDefault(x => x.Name.LocalName == "nSeqEvento")?.Value ?? "00";
+
+                GravarNFSeEmDisco(retorno.Resultado.XmlEvento, $"{prefixoNomeArquivoEventoNfse}_evento_{nSeqEvento}.xml", documento, evento.Informacoes.DhEvento.DateTime, true);
+            }
+
+            return retorno;
         }
 
         #endregion Eventos
@@ -172,10 +280,15 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 
             var strResponse = await httpResponse.Content.ReadAsStringAsync();
 
+            var respostaVazia = string.IsNullOrWhiteSpace(strResponse) || strResponse.Trim() == "{}";
+
+            var sucesso = httpResponse.StatusCode == HttpStatusCode.NoContent ||
+                          (httpResponse.IsSuccessStatusCode && !respostaVazia);
+
             this.Log().Debug($"Webservice ELG GPI: [Enviar][Resposta] - {strResponse}");
 
             GravarArquivoEmDisco(strResponse, $"Enviar-{dps.Informacoes.NumeroDps:000000}-resp.json", documento);
-            var retorno = NFSeResponse<RespostaEnvioDps>.Create(dps.Xml, await JsonContent.Create(envio.XmlDps).ReadAsStringAsync(), strResponse, httpResponse.IsSuccessStatusCode, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+            var retorno = NFSeResponse<RespostaEnvioDps>.Create(dps.Xml, await JsonContent.Create(envio.XmlDps).ReadAsStringAsync(), strResponse, sucesso, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
             if (retorno.Sucesso && retorno.Resultado != null && !retorno.JsonRetorno.Contains("em processamento adn nacional"))
                 GravarNFSeEmDisco(retorno.Resultado.XmlNFSe, $"{dps.Informacoes.NumeroDps:000000}_nfse.xml", documento, dps.Informacoes.DhEmissao.DateTime);

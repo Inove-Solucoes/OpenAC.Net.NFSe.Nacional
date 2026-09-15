@@ -7,7 +7,7 @@
         <RootNamespace>OpenAC.Net.NFSe.Nacional</RootNamespace>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>OpenAC.snk</AssemblyOriginatorKeyFile>
-        <Copyright>Copyright © Projeto OpenAC .Net 2014 - 2025</Copyright>
+        <Copyright>Copyright © Projeto OpenAC .Net 2014 - 2026</Copyright>
         <Company>OpenAC .Net - Automação Comercial em .Net</Company>
         <Authors>Projeto OpenAC .Net</Authors>
         <PackageProjectUrl>https://openac.net.br/</PackageProjectUrl>
@@ -20,9 +20,9 @@
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <NeutralLanguage>pt-BR</NeutralLanguage>
-        <AssemblyVersion>1.4.6.0</AssemblyVersion>
-        <FileVersion>1.4.6.0</FileVersion>
-        <Version>1.4.6</Version>
+        <AssemblyVersion>1.5.0.3</AssemblyVersion>
+        <FileVersion>1.5.0.3</FileVersion>
+        <Version>1.5.0.3</Version>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <DebugType>embedded</DebugType>
@@ -31,6 +31,7 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageId>OpenAC.Net.NFSe.Nacional</PackageId>
         <Nullable>enable</Nullable>
+        <NoWarn>$(NoWarn);SYSLIB0014;CS0108</NoWarn>
         <Description>Biblioteca para emissão e trasmissão de NFSe (Nota Fiscal de Serviço Eletrônica) Padrão Nacional.</Description>
     </PropertyGroup>
 
@@ -60,21 +61,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.9" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.300">
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.400">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="OpenAC.Net.Core" Version="1.6.0" />
-        <PackageReference Include="OpenAC.Net.DFe.Core" Version="1.6.0.2" />
-        <PackageReference Include="System.Buffers" Version="4.6.1" />
-        <PackageReference Include="System.Memory" Version="4.6.3" />
-        <PackageReference Include="System.Net.Http.Json" Version="10.0.9" />
-        <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
-        <PackageReference Include="System.Text.Encodings.Web" Version="10.0.9" />
-        <PackageReference Include="System.Text.Json" Version="10.0.9" />
-        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
-        <PackageReference Include="System.ValueTuple" Version="4.6.2" />
+        <PackageReference Include="OpenAC.Net.DFe.Core" Version="1.7.0.3" />
+        <PackageReference Include="System.Net.Http.Json" Version="10.0.11" />
     </ItemGroup>    
 
     <ItemGroup>

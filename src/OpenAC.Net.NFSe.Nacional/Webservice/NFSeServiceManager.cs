@@ -1,10 +1,11 @@
-﻿using OpenAC.Net.Core;
+using OpenAC.Net.Core;
 using OpenAC.Net.Core.Extensions;
 using OpenAC.Net.DFe.Core.Common;
 using OpenAC.Net.NFSe.Nacional.Common;
 using OpenAC.Net.NFSe.Nacional.Common.Types;
 using OpenAC.Net.NFSe.Nacional.Webservice.ELGPI;
 using OpenAC.Net.NFSe.Nacional.Webservice.Nacional;
+using OpenAC.Net.NFSe.Nacional.Storage;
 using OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice;
 /// <summary>
 /// Gerenciador de serviços para NFSe.
 /// </summary>
-public sealed class NFSeServiceManager
+public sealed partial class NFSeServiceManager
 {
     #region Fields
 
@@ -237,8 +238,8 @@ public sealed class NFSeServiceManager
             {
                 NFSeProvider.SimplISS, new Dictionary<VersaoNFSe, Type>
                 {
-                    { VersaoNFSe.Ve100, typeof(SimplISS.SimplISSWebservice) },
-                    { VersaoNFSe.Ve101, typeof(SimplISS.SimplISSWebservice) }
+                    { VersaoNFSe.Ve100, typeof(SimplISS.SimplISSWebService) },
+                    { VersaoNFSe.Ve101, typeof(SimplISS.SimplISSWebService) }
                 }
             },
             {
@@ -247,6 +248,28 @@ public sealed class NFSeServiceManager
                     { VersaoNFSe.Ve100, typeof(Tiplan.TiplanWebService) },
                     { VersaoNFSe.Ve101, typeof(Tiplan.TiplanWebService) }
                 }
+            },
+            {
+                NFSeProvider.Fiorilli, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(Fiorilli.FiorilliWebService) },
+                    { VersaoNFSe.Ve101, typeof(Fiorilli.FiorilliWebService) }
+                }
+            },
+            {
+                NFSeProvider.ISSNet, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(ISSNet.ISSNetWebService) },
+                    { VersaoNFSe.Ve101, typeof(ISSNet.ISSNetWebService) }
+                }
+            },
+            {
+                NFSeProvider.GovBR, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(GovBR.GovBRWebService) },
+                    { VersaoNFSe.Ve101, typeof(GovBR.GovBRWebService) }
+                }
+            }
             },
             { // Lucas Ticket: #16665 13/03/2026
                 NFSeProvider.VilaVelhaSoap, new Dictionary<VersaoNFSe, Type>
@@ -364,26 +387,25 @@ public sealed class NFSeServiceManager
         Services = NFSeServices.Load(stream);
     }
 
-    /// <summary>
-    /// Retorna uma instância do provedor NFSe para o município nas configurações informadas.
-    /// </summary>
-    /// <param name="config">Configuração do NFSe (não pode ser nulo).</param>
-    /// <returns>Instância de <see cref="NFSeWebserviceBase"/> correspondente ao provedor e versão.</returns>
-    /// <exception cref="ArgumentNullException">Se <paramref name="config"/> for nulo.</exception>
-    /// <exception cref="OpenException">Se o provedor ou versão não estiverem registrados ou a classe do provedor for incompatível.</exception>
-    /// <exception cref="InvalidOperationException">Se a instância do provedor não puder ser criada.</exception>
-    public NFSeWebserviceBase GetProvider(ConfiguracaoNFSe config)
+    /// <summary>Retorna um provedor configurado com o transporte HTTP informado.</summary>
+    public NFSeWebserviceBase GetProvider(ConfiguracaoNFSe config, INFSeHttpTransport? httpTransport = null,
+        INFSeDocumentStore? documentStore = null)
     {
-        var serviceInfo = Services[config.WebServices.CodigoMunicipio];
+        var serviceInfo = Services[config.WebServices.CodigoMunicipio] ?? 
+                          throw new OpenException("Serviço não encontrado para o município informado!");
 
-        // ReSharper disable once PossibleNullReferenceException
         var providerType = Providers[serviceInfo.Provider][config.Geral.Versao];
         if (providerType == null) throw new OpenException("Provedor não encontrado!");
         if (!CheckBaseType(providerType)) throw new OpenException("Classe base do provedor incorreta!");
 
         // ReSharper disable once AssignNullToNotNullAttribute
-        return (NFSeWebserviceBase?)Activator.CreateInstance(providerType, config, serviceInfo) ??
-                throw new InvalidOperationException();
+        var arguments = httpTransport == null
+            ? new object[] { config, serviceInfo }
+            : new object[] { config, serviceInfo, httpTransport };
+        var provider = (NFSeWebserviceBase?)Activator.CreateInstance(providerType, arguments) ??
+                       throw new InvalidOperationException();
+        if (documentStore != null) provider.DocumentStore = documentStore;
+        return provider;
     }
 
     private static bool CheckBaseType(Type providerType)

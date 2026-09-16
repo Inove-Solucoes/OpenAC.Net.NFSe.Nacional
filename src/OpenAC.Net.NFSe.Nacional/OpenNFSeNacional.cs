@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : OpenAC.Net.NFSe.Nacional
 // Author           : RFTD
 // Created          : 09-09-2023
@@ -30,7 +30,6 @@
 // ***********************************************************************
 
 using System;
-using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenAC.Net.Core.Logging;
@@ -167,24 +166,19 @@ public sealed class OpenNFSeNacional : IOpenNFSeNacionalClient, IOpenLog
     /// <param name="id">Identificação do DPS.</param>
     /// <param name="token">Token de integração com a prefeitura.</param>
     /// <returns>Resposta da consulta contendo a chave de acesso.</returns>
-    public Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token)
+    /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+    public Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token, CancellationToken cancellationToken = default)
     {
         var provider = NFSeServiceManager.Instance.GetProvider(Configuracoes);
-        var oldProtocol = ServicePointManager.SecurityProtocol;
 
         try
         {
-            ServicePointManager.SecurityProtocol = Configuracoes.WebServices.Protocolos;
-            return provider.ConsultaChaveDpsAsync(chave, token);
+            return provider.ConsultaChaveDpsAsync(chave, token, cancellationToken);
         }
         catch (Exception exception)
         {
             this.Log().Error("[ConsultaChaveDps]", exception);
             throw;
-        }
-        finally
-        {
-            ServicePointManager.SecurityProtocol = oldProtocol;
         }
     }
 
@@ -348,24 +342,19 @@ public sealed class OpenNFSeNacional : IOpenNFSeNacionalClient, IOpenLog
     /// <param name="idDPS">Identificação da DPS.</param>
     /// <param name="token">Token de Integração com a Prefeitura</param>
     /// <returns>True se a NFS-e existe, caso contrário, false.</returns>
-    public Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token)
+    /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+    public Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token, CancellationToken cancellationToken = default)
     {
         var provider = NFSeServiceManager.Instance.GetProvider(Configuracoes);
-        var oldProtocol = ServicePointManager.SecurityProtocol;
 
         try
         {
-            ServicePointManager.SecurityProtocol = Configuracoes.WebServices.Protocolos;
-            return provider.ConsultaExisteDpsAsync(idDPS, token);
+            return provider.ConsultaExisteDpsAsync(idDPS, token, cancellationToken);
         }
         catch (Exception exception)
         {
             this.Log().Error("[ConsultaExisteDps]", exception);
             throw;
-        }
-        finally
-        {
-            ServicePointManager.SecurityProtocol = oldProtocol;
         }
     }
 

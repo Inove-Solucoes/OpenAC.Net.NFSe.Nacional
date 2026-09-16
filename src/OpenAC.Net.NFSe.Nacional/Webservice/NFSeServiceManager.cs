@@ -269,7 +269,6 @@ public sealed partial class NFSeServiceManager
                     { VersaoNFSe.Ve100, typeof(GovBR.GovBRWebService) },
                     { VersaoNFSe.Ve101, typeof(GovBR.GovBRWebService) }
                 }
-            }
             },
             { // Lucas Ticket: #16665 13/03/2026
                 NFSeProvider.VilaVelhaSoap, new Dictionary<VersaoNFSe, Type>

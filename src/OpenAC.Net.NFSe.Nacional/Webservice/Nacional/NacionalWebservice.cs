@@ -173,7 +173,8 @@ public class NacionalWebservice : NFSeWebserviceBase
     /// <param name="idDPS">Identificação do DPS.</param>
     /// <param name="token">Token de Integração com a Prefeitura</param>
     /// <returns>True se existir, caso contrário false.</returns>
-    public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token)
+    /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+    public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token, CancellationToken cancellationToken = default)
     {
         throw new System.NotImplementedException();
     }
@@ -260,7 +261,7 @@ public class NacionalWebservice : NFSeWebserviceBase
         
         var prefixoNomeArquivoEventoNfse = Configuracao.Arquivos.PadronizarNomes
             ? evento.Informacoes.ChNFSe
-            : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento}";
+            : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}";
 
         var nSeqEvento = XDocument.Parse(retorno.Resultado.XmlEvento)
             .Descendants()
@@ -353,7 +354,7 @@ public class NacionalWebservice : NFSeWebserviceBase
         return retorno;
     }
 
-    public override Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token)
+    public override Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token, CancellationToken cancellationToken = default)
     {
         throw new System.NotImplementedException();
     }

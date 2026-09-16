@@ -7,7 +7,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -29,8 +31,12 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// <param name="configuracaoNFSe">Configuração da NFSe.</param>
         /// <param name="serviceInfo">Informações do serviço</param>
         public ELGPIWebservice(ConfiguracaoNFSe configuracaoNFSe, NFSeServiceInfo serviceInfo)
-            : base(configuracaoNFSe, serviceInfo)
+            : this(configuracaoNFSe, serviceInfo, null)
         { Console.WriteLine("Provider ELG GPI Caregado."); }
+
+        public ELGPIWebservice(ConfiguracaoNFSe configuracaoNFSe, NFSeServiceInfo serviceInfo, INFSeHttpTransport? httpTransport)
+            : base(configuracaoNFSe, serviceInfo, httpTransport)
+        { }
 
         #endregion Constructor
 
@@ -43,7 +49,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// </summary>
         /// <param name="chave">Chave de acesso da NFS-e.</param>
         /// <returns>Array de bytes contendo o DANFSe.</returns>
-        public override async Task<byte[]> DownloadDANFSeAsync(string chave)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<byte[]> DownloadDANFSeAsync(string chave, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -57,7 +64,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// </summary>
         /// <param name="nsu">Número NSU.</param>
         /// <returns>Resposta da consulta contendo os DF-e.</returns>
-        public override async Task<NFSeResponse<RespostaConsultaDFe>> ConsultaNsuAsync(int nsu)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaConsultaDFe>> ConsultaNsuAsync(int nsu, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -67,7 +75,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// </summary>
         /// <param name="chave">Chave de acesso da NFS-e.</param>
         /// <returns>Resposta da consulta contendo os DF-e.</returns>
-        public override async Task<NFSeResponse<RespostaConsultaDFe>> ConsultaChaveAsync(string chave)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaConsultaDFe>> ConsultaChaveAsync(string chave, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -82,7 +91,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// <param name="id">Identificação do DPS.</param>
         /// <returns>Resposta da consulta contendo a chave de acesso.</returns>
 
-        public override async Task<NFSeResponse<RespostaConsultaChaveDps>> ConsultaChaveDpsAsync(string id)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaConsultaChaveDps>> ConsultaChaveDpsAsync(string id, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -93,13 +103,14 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// <param name="id">Identificação do DPS.</param>
         /// <param name="token">Token de integração com a prefeitura.</param>
         /// <returns>Resposta da consulta contendo a chave de acesso.</returns>
-        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(token))
                 throw new Exception("O Token de acesso não foi informado nas configurações");
 
             var url = ServiceInfo[Configuracao.WebServices.Ambiente][TipoUrl.ConsultarChave];
-            var httpResponse = await SendAsync(null, HttpMethod.Get, $"{url}/{chave}?token={token}");
+            using var httpResponse = await SendAsync(null, HttpMethod.Get, $"{url}/{chave}?token={token}", cancellationToken: cancellationToken);
 
             var strResponse = await httpResponse.Content.ReadAsStringAsync();
 
@@ -113,7 +124,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// </summary>
         /// <param name="id">Identificação do DPS.</param>
         /// <returns>True se existir, caso contrário false.</returns>
-        public override async Task<bool> ConsultaExisteDpsAsync(string id)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<bool> ConsultaExisteDpsAsync(string id, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -124,13 +136,14 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// <param name="idDPS">Identificação do DPS.</param>
         /// <param name="token">Token de Integração com a Prefeitura</param>
         /// <returns>True se existir, caso contrário false.</returns>
-        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(token))
                 throw new Exception("O Token de acesso não foi informado nas configurações");
 
             var url = ServiceInfo[Configuracao.WebServices.Ambiente][TipoUrl.ConsultaExisteDps];
-            var httpResponse = await SendAsync(null, HttpMethod.Get, $"{url}/{idDPS}?token={token}");
+            using var httpResponse = await SendAsync(null, HttpMethod.Get, $"{url}/{idDPS}?token={token}", cancellationToken: cancellationToken);
 
             var strResponse = await httpResponse.Content.ReadAsStringAsync();
 
@@ -148,7 +161,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// </summary>
         /// <param name="evento">Evento a ser enviado.</param>
         /// <returns>Resposta do envio do evento.</returns>
-        public override async Task<NFSeResponse<RespostaEnvioEvento>> EnviarEventoAsync(PedidoRegistroEvento evento)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaEnvioEvento>> EnviarEventoAsync(PedidoRegistroEvento evento, CancellationToken cancellationToken = default)
         {
             if (evento.Informacoes.Evento.Descricao == null || string.IsNullOrEmpty(evento.Informacoes.Evento.Descricao))
                 throw new Exception("O Token de acesso não foi informado nas configurações");
@@ -164,8 +178,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
                 ? evento.Informacoes.Id
                 : $"{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}";
 
-            GravarDpsEmDisco(evento.Xml, $"{prefixoNomeArquivoDps}_evento.xml",
-                    documento, evento.Informacoes.DhEvento.DateTime, true);
+            await GravarDpsEmDiscoAsync(evento.Xml, $"{prefixoNomeArquivoDps}_evento.xml",
+                    documento, evento.Informacoes.DhEvento.DateTime, true, cancellationToken: cancellationToken);
 
             var envio = new EventoEnvio
             {
@@ -177,8 +191,11 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 
             this.Log().Debug($"Webservice: [Evento][Envio] - {strEnvio}");
 
-            GravarArquivoEmDisco(strEnvio, $"Evento-{prefixoNomeArquivoDps}-env.json",
-                documento);
+            // O arquivo local contém XML legível; o content enviado à API mantém GZip/Base64.
+            var jsonArquivo = JsonSerializer.Serialize(new { pedidoRegistroEventoXmlGZipB64 = envio.XmlEvento },
+                new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping });
+            await GravarArquivoEmDiscoAsync(jsonArquivo, $"Evento-{prefixoNomeArquivoDps}-env.json",
+                documento, cancellationToken: cancellationToken);
 
             var url = ServiceInfo[Configuracao.WebServices.Ambiente][TipoUrl.EnviarEvento];
 
@@ -188,14 +205,14 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
                 : url.TrimEnd('/');
             var urlEvento = $"{urlBase}/{evento.Informacoes.ChNFSe}/eventos?token={Uri.EscapeDataString(token)}";
 
-            var httpResponse = await SendAsync(content, HttpMethod.Post, urlEvento);
+            using var httpResponse = await SendAsync(content, HttpMethod.Post, urlEvento, cancellationToken: cancellationToken);
 
             var strResponse = await httpResponse.Content.ReadAsStringAsync();
 
             this.Log().Debug($"Webservice: [Evento][Resposta] - {strResponse}");
 
-            GravarArquivoEmDisco(strResponse, $"Evento-{prefixoNomeArquivoDps}-resp.json",
-                documento);
+            await GravarArquivoEmDiscoAsync(strResponse, $"Evento-{prefixoNomeArquivoDps}-resp.json",
+                documento, cancellationToken: cancellationToken);
 
             var jsonOptions = new JsonSerializerOptions
             {
@@ -231,7 +248,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
                     .Descendants()
                     .FirstOrDefault(x => x.Name.LocalName == "nSeqEvento")?.Value ?? "00";
 
-                GravarNFSeEmDisco(retorno.Resultado.XmlEvento, $"{prefixoNomeArquivoEventoNfse}_evento_{nSeqEvento}.xml", documento, evento.Informacoes.DhEvento.DateTime, true);
+                await GravarNFSeEmDiscoAsync(retorno.Resultado.XmlEvento, $"{prefixoNomeArquivoEventoNfse}_evento_{nSeqEvento}.xml", documento, evento.Informacoes.DhEvento.DateTime, true, cancellationToken: cancellationToken);
             }
 
             return retorno;
@@ -246,13 +263,14 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
         /// </summary>
         /// <param name="dps">DPS a ser enviada.</param>
         /// <returns>Resposta do envio da DPS.</returns>
-        public override async Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps)
+        public override async Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps, CancellationToken cancellationToken = default)
         {
             if (dps.Informacoes.Servico.InformacoesComplementares == null || string.IsNullOrEmpty(dps.Informacoes.Servico.InformacoesComplementares.Informacoes))
                 throw new Exception("O Token de acesso não foi informado nas configurações");
 
             var token = dps.Informacoes.Servico.InformacoesComplementares.Informacoes;
-            dps.Informacoes.Servico.InformacoesComplementares.Informacoes = string.Empty;
+            // O token segue na autenticação; null omite xInfComp, pois o schema rejeita texto vazio.
+            dps.Informacoes.Servico.InformacoesComplementares.Informacoes = null;
             
             dps.Assinar(Configuracao);
             
@@ -260,8 +278,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 
             var documento = dps.Informacoes.Prestador.CPF ?? dps.Informacoes.Prestador.CNPJ;
 
-            GravarDpsEmDisco(dps.Xml, $"{dps.Informacoes.NumeroDps:000000}_dps.xml",
-                documento, dps.Informacoes.DhEmissao.DateTime);
+            await GravarDpsEmDiscoAsync(dps.Xml, $"{dps.Informacoes.NumeroDps:000000}_dps.xml",
+                documento, dps.Informacoes.DhEmissao.DateTime, cancellationToken: cancellationToken);
 
             var envio = new DpsEnvio
             {
@@ -273,10 +291,13 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 
             this.Log().Debug($"Webservice ELG GPI: [Enviar][Envio] - {strEnvio}");
 
-            GravarArquivoEmDisco(strEnvio, $"Enviar-{dps.Informacoes.NumeroDps:000000}-env.json", documento);
+            // O arquivo local contém XML legível; o content enviado à API mantém GZip/Base64.
+            var jsonArquivo = JsonSerializer.Serialize(new { dpsXmlGZipB64 = envio.XmlDps },
+                new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping });
+            await GravarArquivoEmDiscoAsync(jsonArquivo, $"Enviar-{dps.Informacoes.NumeroDps:000000}-env.json", documento, cancellationToken: cancellationToken);
 
             var url = ServiceInfo[Configuracao.WebServices.Ambiente][TipoUrl.Enviar];
-            var httpResponse = await SendAsync(content, HttpMethod.Post, $"{url}?token={token}");
+            using var httpResponse = await SendAsync(content, HttpMethod.Post, $"{url}?token={token}", cancellationToken: cancellationToken);
 
             var strResponse = await httpResponse.Content.ReadAsStringAsync();
 
@@ -287,11 +308,11 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.ELGPI
 
             this.Log().Debug($"Webservice ELG GPI: [Enviar][Resposta] - {strResponse}");
 
-            GravarArquivoEmDisco(strResponse, $"Enviar-{dps.Informacoes.NumeroDps:000000}-resp.json", documento);
+            await GravarArquivoEmDiscoAsync(strResponse, $"Enviar-{dps.Informacoes.NumeroDps:000000}-resp.json", documento, cancellationToken: cancellationToken);
             var retorno = NFSeResponse<RespostaEnvioDps>.Create(dps.Xml, await JsonContent.Create(envio.XmlDps).ReadAsStringAsync(), strResponse, sucesso, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
             if (retorno.Sucesso && retorno.Resultado != null && !retorno.JsonRetorno.Contains("em processamento adn nacional"))
-                GravarNFSeEmDisco(retorno.Resultado.XmlNFSe, $"{dps.Informacoes.NumeroDps:000000}_nfse.xml", documento, dps.Informacoes.DhEmissao.DateTime);
+                await GravarNFSeEmDiscoAsync(retorno.Resultado.XmlNFSe, $"{dps.Informacoes.NumeroDps:000000}_nfse.xml", documento, dps.Informacoes.DhEmissao.DateTime, cancellationToken: cancellationToken);
 
             return retorno;
         }

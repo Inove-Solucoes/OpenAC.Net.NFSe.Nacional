@@ -58,4 +58,7 @@ public sealed partial class ValoresDeducaoReducao
     [DFeCollection("documentos")]
     [DFeItem(typeof(DocumentoDeducaoReducao), "docDedRed")]
     public List<DocumentoDeducaoReducao> Documentos { get; set; } = new();
+
+    // O schema permite pDR, vDR ou documentos; a lista vazia não pode criar uma opção extra.
+    public bool ShouldSerializeDocumentos() => Documentos != null && Documentos.Count > 0;
 }

@@ -133,7 +133,8 @@ public abstract class NFSeWebserviceBase : IOpenLog
     /// <param name="id">Identificação do DPS.</param>
     /// <param name="token">Token de integração com a prefeitura.</param>
     /// <returns>Resposta da consulta contendo a chave de acesso.</returns>
-    public abstract Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token);
+    /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+    public virtual Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token, CancellationToken cancellationToken = default) => throw new NotSupportedException("Este provedor não suporta consulta com token de integração.");
 
     /// <summary>
     /// Verifica se uma NFS-e foi emitida a partir do Id do DPS.
@@ -150,7 +151,8 @@ public abstract class NFSeWebserviceBase : IOpenLog
     /// <param name="idDPS">Identificação do DPS.</param>
     /// <param name="token">Token de integração com a prefeitura.</param>
     /// <returns>True se existir, caso contrário false.</returns>
-    public abstract Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token);
+    /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+    public virtual Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token, CancellationToken cancellationToken = default) => throw new NotSupportedException("Este provedor não suporta consulta com token de integração.");
 
     /// <summary>
     /// Recepciona o Pedido de Registro de Evento e gera Eventos de NFS-e, crédito, débito e apuração.

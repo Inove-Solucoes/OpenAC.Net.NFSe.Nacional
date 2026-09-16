@@ -1,4 +1,4 @@
-﻿using OpenAC.Net.Core.Extensions;
+using OpenAC.Net.Core.Extensions;
 using OpenAC.Net.Core.Logging;
 using OpenAC.Net.DFe.Core.Extensions;
 using OpenAC.Net.NFSe.Nacional.Common;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -31,8 +32,12 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// <param name="serviceInfo">Informações do serviço</param>"
 
         public VilaVelhaSoapWebservice(ConfiguracaoNFSe configuracaoNFSe, NFSeServiceInfo serviceInfo)
-            : base(configuracaoNFSe, serviceInfo)
+            : this(configuracaoNFSe, serviceInfo, null)
         { Console.WriteLine("Provider Vila Velha Carregado."); }
+
+        public VilaVelhaSoapWebservice(ConfiguracaoNFSe configuracaoNFSe, NFSeServiceInfo serviceInfo, INFSeHttpTransport? httpTransport)
+            : base(configuracaoNFSe, serviceInfo, httpTransport)
+        { }
 
         #endregion
 
@@ -45,7 +50,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// </summary>
         /// <param name="chave">Chave de acesso da NFS-e.</param>
         /// <returns>Array de bytes contendo o DANFSe.</returns>
-        public override async Task<byte[]> DownloadDANFSeAsync(string chave)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<byte[]> DownloadDANFSeAsync(string chave, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -59,7 +65,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// </summary>
         /// <param name="nsu">Número NSU.</param>
         /// <returns>Resposta da consulta contendo os DF-e.</returns>
-        public override async Task<NFSeResponse<RespostaConsultaDFe>> ConsultaNsuAsync(int nsu)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaConsultaDFe>> ConsultaNsuAsync(int nsu, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -69,7 +76,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// </summary>
         /// <param name="chave">Chave de acesso da NFS-e.</param>
         /// <returns>Resposta da consulta contendo os DF-e.</returns>
-        public override async Task<NFSeResponse<RespostaConsultaDFe>> ConsultaChaveAsync(string chave)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaConsultaDFe>> ConsultaChaveAsync(string chave, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -84,7 +92,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// <param name="id">Identificação do DPS.</param>
         /// <returns>Resposta da consulta contendo a chave de acesso.</returns>
 
-        public override async Task<NFSeResponse<RespostaConsultaChaveDps>> ConsultaChaveDpsAsync(string id)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaConsultaChaveDps>> ConsultaChaveDpsAsync(string id, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -94,7 +103,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// </summary>
         /// <param name="id">Identificação do DPS.</param>
         /// <returns>True se existir, caso contrário false.</returns>
-        public override async Task<bool> ConsultaExisteDpsAsync(string id)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<bool> ConsultaExisteDpsAsync(string id, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
@@ -105,21 +115,23 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// <param name="idDPS">Identificação do DPS.</param>
         /// <param name="token">Token de Integração com a Prefeitura</param>
         /// <returns>True se existir, caso contrário false.</returns>
-        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaEnvioDps>> ConsultaExisteDpsAsync(string idDPS, string token, CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException();
         }
 
         #endregion DPS
 
-            #region Eventos
+        #region Eventos
 
-            /// <summary>
-            /// Recepciona o Pedido de Registro de Evento e gera Eventos de NFS-e, crédito, débito e apuração.
-            /// </summary>
-            /// <param name="evento">Evento a ser enviado.</param>
-            /// <returns>Resposta do envio do evento.</returns>
-        public override async Task<NFSeResponse<RespostaEnvioEvento>> EnviarEventoAsync(PedidoRegistroEvento evento)
+        /// <summary>
+        /// Recepciona o Pedido de Registro de Evento e gera Eventos de NFS-e, crédito, débito e apuração.
+        /// </summary>
+        /// <param name="evento">Evento a ser enviado.</param>
+        /// <returns>Resposta do envio do evento.</returns>
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaEnvioEvento>> EnviarEventoAsync(PedidoRegistroEvento evento, CancellationToken cancellationToken = default)
         {
             var xmlEvento = AdicionarEventoDeCancelarVilaVelha(evento);
 
@@ -129,8 +141,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
 
             var documento = evento.Informacoes.CPFAutor ?? evento.Informacoes.CNPJAutor;
 
-            GravarDpsEmDisco(soapXml, $"{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}_evento.xml",
-            documento, evento.Informacoes.DhEvento.DateTime);
+            await GravarDpsEmDiscoAsync(soapXml, $"{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}_evento.xml",
+            documento, evento.Informacoes.DhEvento.DateTime, cancellationToken: cancellationToken);
 
             var envio = new EventoEnvio
             {
@@ -143,21 +155,19 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
 
             this.Log().Debug($"Webservice: [Evento][Envio] - {strEnvio}");
 
-            GravarArquivoEmDisco(strEnvio, $"Evento-{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}-env.xml",
-                documento);
+            await GravarArquivoEmDiscoAsync(strEnvio, $"Evento-{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}-env.xml", documento, cancellationToken: cancellationToken);
 
             var url = ServiceInfo[Configuracao.WebServices.Ambiente][Common.Types.TipoUrl.EnviarEvento];
             content.Headers.Clear();
             content.Headers.Add("Content-Type", "text/xml; charset=utf-8");
 
-            var httpResponse = await SendAsync(content, HttpMethod.Post, url);
+            using var httpResponse = await SendAsync(content, HttpMethod.Post, url, cancellationToken: cancellationToken);
 
             var strResponse = await httpResponse.Content.ReadAsStringAsync();
 
             this.Log().Debug($"Webservice: [Evento][Resposta] - {strResponse}");
 
-            GravarArquivoEmDisco(strResponse, $"Evento-{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}-resp.xml",
-                documento);
+            await GravarArquivoEmDiscoAsync(strResponse, $"Evento-{evento.Informacoes.nSeq}-{evento.Informacoes.ChNFSe}{evento.Informacoes.Evento.Descricao}-resp.xml", documento, cancellationToken: cancellationToken);
 
             var jsonOptions = new JsonSerializerOptions
             {
@@ -177,7 +187,8 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
         /// </summary>
         /// <param name="dps">DPS a ser enviada.</param>
         /// <returns>Resposta do envio da DPS.</returns>
-        public override async Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps)
+        /// <param name="cancellationToken">Token para cancelar a operação assíncrona.</param>
+        public override async Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps, CancellationToken cancellationToken = default)
         {
             // AjustarDpsVilaVelha(ref dps);
 
@@ -198,40 +209,40 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
             var documento = dps.Informacoes.Prestador.CPF ?? dps.Informacoes.Prestador.CNPJ;
 
             // salva DPS xml
-            GravarDpsEmDisco(
+            await GravarDpsEmDiscoAsync(
                 dps.Xml,
                 $"{dps.Informacoes.NumeroDps:000000}_dps.xml",
                 documento,
                 dps.Informacoes.DhEmissao.DateTime
-            );
+            , cancellationToken: cancellationToken);
 
             var url = ServiceInfo[Configuracao.WebServices.Ambiente][Common.Types.TipoUrl.Enviar];
 
             this.Log().Debug($"Webservice Vila Velha: [Enviar][Envio] - {dps.Xml}");
 
             // salva envio SOAP
-            GravarArquivoEmDisco(
+            await GravarArquivoEmDiscoAsync(
                 soapXml,
                 $"Enviar-{dps.Informacoes.NumeroDps:000000}-env.xml",
                 documento
-            );
+            , cancellationToken: cancellationToken);
 
             var content = new StringContent(soapXml, Encoding.UTF8, "text/xml");
             content.Headers.Clear();
             content.Headers.Add("Content-Type", "text/xml; charset=utf-8");
 
-            var httpResponse = await SendAsync(content, HttpMethod.Post, url);
+            using var httpResponse = await SendAsync(content, HttpMethod.Post, url, cancellationToken: cancellationToken);
 
             var respostaXml = await httpResponse.Content.ReadAsStringAsync();
 
             this.Log().Debug($"Webservice Vila Velha: [Enviar][Resposta] - {respostaXml}");
 
             // salva resposta SOAP
-            GravarArquivoEmDisco(
+            await GravarArquivoEmDiscoAsync(
                 respostaXml,
                 $"Enviar-{dps.Informacoes.NumeroDps:000000}-resp.xml",
                 documento
-            );
+            , cancellationToken: cancellationToken);
 
             var retorno = NFSeResponse<RespostaEnvioDps>.Create(
                 dps.Xml,
@@ -243,12 +254,12 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
             // se retorno contiver NFSe
             if (retorno.Sucesso && retorno.JsonRetorno.Contains("PROCESSADO_COM_SUCESSO"))
             {
-                GravarNFSeEmDisco(
+                await GravarNFSeEmDiscoAsync(
                     retorno.JsonRetorno,
                     $"{dps.Informacoes.NumeroDps:000000}_nfse.xml",
                     documento,
                     dps.Informacoes.DhEmissao.DateTime
-                );
+                , cancellationToken: cancellationToken);
             }
 
             return retorno;
@@ -424,7 +435,7 @@ namespace OpenAC.Net.NFSe.Nacional.Webservice.VilaVelhaSoap
             return enderNac;
         }
 
-        public override Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token)
+        public override Task<NFSeResponse<RespostaEnvioDps>> ConsultaChaveDpsAsync(string chave, string token, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }

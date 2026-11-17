@@ -30,6 +30,7 @@
 // ***********************************************************************
 
 using OpenAC.Net.DFe.Core.Attributes;
+using OpenAC.Net.DFe.Core.Serializer;
 
 namespace OpenAC.Net.NFSe.Nacional.Common.Model;
 
@@ -39,6 +40,10 @@ namespace OpenAC.Net.NFSe.Nacional.Common.Model;
 public sealed partial class PrestadorDps : InfoPessoaNFSe
 {
     #region Properties
+
+    /// <summary>Inscrição municipal do prestador, com a formatação informada.</summary>
+    [DFeElement(TipoCampo.Str, "IM", Min = 1, Max = 20, Ocorrencia = Ocorrencia.NaoObrigatoria, Ordem = 4)]
+    public new string? InscricaoMunicipal { get; set; }
 
     /// <summary>
     /// Regime tributário do prestador.

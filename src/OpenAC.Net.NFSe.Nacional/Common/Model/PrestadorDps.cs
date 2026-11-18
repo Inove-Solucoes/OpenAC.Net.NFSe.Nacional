@@ -43,7 +43,11 @@ public sealed partial class PrestadorDps : InfoPessoaNFSe
 
     /// <summary>Inscrição municipal do prestador, com a formatação informada.</summary>
     [DFeElement(TipoCampo.Str, "IM", Min = 1, Max = 20, Ocorrencia = Ocorrencia.NaoObrigatoria, Ordem = 4)]
-    public new string? InscricaoMunicipal { get; set; }
+    public new string? InscricaoMunicipal
+    {
+        get;
+        set => field = string.IsNullOrWhiteSpace(value) ? null : value;
+    }
 
     /// <summary>
     /// Regime tributário do prestador.
